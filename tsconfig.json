@@ -14,5 +14,6 @@
     "paths": {
       "@/*": ["src/*"]
     }
-  }
+  },
+  "include": ["node_modules/@callumacrae/utils/**/*.ts"]
 }
