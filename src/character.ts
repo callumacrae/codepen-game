@@ -82,28 +82,36 @@ const characterTypes: { [type in CharacterType]: TypeObject } = {
 
   skeleton: {
     base: {
-      scale: [0.9, 0.9],
+      scale: [0.8, 0.8],
       anchor: [0.5, 1],
-      animationSpeed: (1 / 60) * 3,
+      animationSpeed: (1 / 60) * 8,
     },
     states: {
       stationary: {
-        images: [`zombie_n_skeleton2-3.png`],
+        images: ['skeleton-1.png'],
       },
       down: {
-        images: [3, 4, 5].map((i) => `zombie_n_skeleton2-${i}.png`),
+        images: [78, 79, 80, 81, 82, 83, 84, 85, 86].map(
+          (i) => `skeleton-${i}.png`
+        ),
       },
       up: {
-        images: [30, 31, 32].map((i) => `zombie_n_skeleton2-${i}.png`),
+        images: [60, 61, 62, 63, 64, 65, 66, 67, 68].map(
+          (i) => `skeleton-${i}.png`
+        ),
       },
       left: {
-        images: [12, 13, 14].map((i) => `zombie_n_skeleton2-${i}.png`),
+        images: [69, 70, 71, 72, 73, 74, 75, 76, 77].map(
+          (i) => `skeleton-${i}.png`
+        ),
       },
       right: {
-        images: [21, 22, 23].map((i) => `zombie_n_skeleton2-${i}.png`),
+        images: [87, 88, 89, 90, 91, 92, 93, 94, 95].map(
+          (i) => `skeleton-${i}.png`
+        ),
       },
-    }
-  }
+    },
+  },
 };
 
 const textureCache = new WeakMap();
