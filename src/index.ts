@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 
-import * as world from './world';
+import World from './world';
 
 const app = new PIXI.Application({
   backgroundColor: 0x211f27,
@@ -11,14 +11,13 @@ document.body.appendChild(app.view);
 
 app.loader.add('dungeonTiles', 'assets/dungeon_tiles_4.json');
 app.loader.load((loader, resources) => {
-  const sheet = resources.dungeonTiles;
-
-  if (!sheet || !sheet.textures) {
+  if (!resources.dungeonTiles) {
     throw new Error('Failed to load required resources');
   }
 
-  const { width, height, collisionMap } = world.generateCollisionMap();
-  const { tileMap } = world.generateTileMap(width, height, collisionMap);
-  const { background } = world.drawWorld(width, height, tileMap);
-  app.stage.addChild(background);
+  const world = new World();
+
+  const worldContainer = world.draw();
+  worldContainer.position.set(80, 98);
+  app.stage.addChild(worldContainer);
 });
