@@ -170,7 +170,7 @@ export default class World {
         "Can't add character to a world that hasn't been drawn yet."
       );
     }
-    this.container.addChild(character);
+    this.container.addChild(character.getSprite());
 
     character.setWorld(this);
   }

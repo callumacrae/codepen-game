@@ -47,7 +47,7 @@ app.loader.load((loader, resources) => {
 
   let timeSinceLastInstruction = 0;
   app.ticker.add((delta) => {
-    character.update2(delta, timeSinceLastInstruction);
+    character.update(delta, timeSinceLastInstruction);
 
     timeSinceLastInstruction += app.ticker.elapsedMS;
 

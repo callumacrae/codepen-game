@@ -8,8 +8,8 @@ type CharacterState = 'stationary' | 'down' | 'up' | 'left' | 'right';
 export type Command = 'left' | 'right' | 'up' | 'down';
 export interface InstructionData {
   availableCommands: Command[];
-  position: [number, number],
-  previousCommands: Command[]
+  position: [number, number];
+  previousCommands: Command[];
 }
 type InstructionFnType = (data: InstructionData) => Command;
 
@@ -45,7 +45,7 @@ const characterTypes: { [type in CharacterType]: TypeObject } = {
       },
       up: {
         // @TODO these are the wrong way round or something
-        images: [0, 1, 2, 3].map((i) => `Turret Bot-${i}.png`),
+        images: [3, 2, 1, 0].map((i) => `Turret Bot-${i}.png`),
       },
       left: {
         images: [8, 9, 10, 11].map((i) => `Turret Bot-${i}.png`),
@@ -58,15 +58,21 @@ const characterTypes: { [type in CharacterType]: TypeObject } = {
   },
 };
 
-// @TODO cache his
+const textureCache = new WeakMap();
 const getTexturesForState = (type: CharacterType, state: CharacterState) => {
-  return characterTypes[type].states[state].images.map((image) =>
-    PIXI.Texture.from(image)
-  );
+  const images = characterTypes[type].states[state].images;
+  if (textureCache.has(images)) {
+    return textureCache.get(images);
+  }
+  const textures = images.map((image) => PIXI.Texture.from(image));
+  textureCache.set(images, textures);
+  return textures;
 };
 
-export default class Character extends PIXI.AnimatedSprite {
+export default class Character {
+  private sprite: PIXI.AnimatedSprite;
   private type: CharacterType;
+  private currentState?: CharacterState;
   private world?: World;
   private currentPosition?: [number, number];
   private instructionFn?: InstructionFnType;
@@ -77,7 +83,7 @@ export default class Character extends PIXI.AnimatedSprite {
     const initialState = 'stationary';
     const textureArray = getTexturesForState(type, initialState);
 
-    super(textureArray, false);
+    this.sprite = new PIXI.AnimatedSprite(textureArray, false);
 
     this.type = type;
     this.setState(initialState, false);
@@ -89,8 +95,11 @@ export default class Character extends PIXI.AnimatedSprite {
     this.world = world;
   }
 
-  setState(state: CharacterState, updateTextures = true) {
-    // @TODO check if state has actually changed
+  private setState(state: CharacterState, updateTextures = true) {
+    if (state === this.currentState) {
+      return
+    }
+
     const characterInfo = Object.assign(
       {},
       characterTypes[this.type].base,
@@ -98,17 +107,19 @@ export default class Character extends PIXI.AnimatedSprite {
     );
 
     if (updateTextures) {
-      this.textures = getTexturesForState(this.type, state);
+      this.sprite.textures = getTexturesForState(this.type, state);
     }
     if (characterInfo.scale) {
-      this.scale.set(...characterInfo.scale);
+      this.sprite.scale.set(...characterInfo.scale);
     }
     if (characterInfo.animationSpeed) {
-      this.animationSpeed = characterInfo.animationSpeed;
+      this.sprite.animationSpeed = characterInfo.animationSpeed;
     }
     if (characterInfo.anchor) {
-      this.anchor.set(...characterInfo.anchor);
+      this.sprite.anchor.set(...characterInfo.anchor);
     }
+
+    this.currentState = state;
   }
 
   setPosition(position: [number, number], animationDuration = 0) {
@@ -129,7 +140,7 @@ export default class Character extends PIXI.AnimatedSprite {
 
     const { tileWidth, tileHeight } = this.world;
     const goTo = ([x, y]: [number, number]) =>
-      this.position.set((x + 0.5) * tileWidth, (y + 1) * tileHeight);
+      this.sprite.position.set((x + 0.5) * tileWidth, (y + 1) * tileHeight);
 
     if (animationDuration && oldPosition) {
       const from = oldPosition;
@@ -150,9 +161,8 @@ export default class Character extends PIXI.AnimatedSprite {
     this.currentPosition = position;
   }
 
-  // @TODO rename back after moving to component pattern
-  update2(delta: number, timeSinceLastInstruction: number) {
-    super.update(delta);
+  update(delta: number, timeSinceLastInstruction: number) {
+    this.sprite.update(delta);
 
     if (this.tweenDuration) {
       this.tweenDuration(timeSinceLastInstruction);
@@ -211,7 +221,7 @@ export default class Character extends PIXI.AnimatedSprite {
       throw new Error('Unavailable command used.');
     }
 
-    this.previousCommands.push(command)
+    this.previousCommands.push(command);
 
     switch (command) {
       case 'up':
@@ -230,5 +240,9 @@ export default class Character extends PIXI.AnimatedSprite {
         this.setPosition([position[0] + 1, position[1]], duration);
         break;
     }
+  }
+
+  public getSprite() {
+    return this.sprite;
   }
 }
