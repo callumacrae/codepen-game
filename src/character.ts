@@ -2,7 +2,7 @@ import * as PIXI from 'pixi.js';
 
 import World from './world';
 
-type CharacterType = 'robot';
+type CharacterType = 'robot' | 'zombie' | 'skeleton';
 type CharacterState = 'stationary' | 'down' | 'up' | 'left' | 'right';
 
 export type Command = 'left' | 'right' | 'up' | 'down';
@@ -11,7 +11,7 @@ export interface InstructionData {
   position: [number, number];
   previousCommands: Command[];
 }
-type InstructionFnType = (data: InstructionData) => Command;
+export type InstructionFnType = (data: InstructionData) => Command;
 
 interface BaseStateObject {
   scale?: [number, number];
@@ -44,7 +44,6 @@ const characterTypes: { [type in CharacterType]: TypeObject } = {
         images: [4, 5, 6, 7].map((i) => `Turret Bot-${i}.png`),
       },
       up: {
-        // @TODO these are the wrong way round or something
         images: [3, 2, 1, 0].map((i) => `Turret Bot-${i}.png`),
       },
       left: {
@@ -56,6 +55,55 @@ const characterTypes: { [type in CharacterType]: TypeObject } = {
       },
     },
   },
+
+  zombie: {
+    base: {
+      anchor: [0.5, 1],
+      animationSpeed: (1 / 60) * 3,
+    },
+    states: {
+      stationary: {
+        images: [`zombie_n_skeleton2-0.png`],
+      },
+      down: {
+        images: [0, 1, 2].map((i) => `zombie_n_skeleton2-${i}.png`),
+      },
+      up: {
+        images: [27, 28, 29].map((i) => `zombie_n_skeleton2-${i}.png`),
+      },
+      left: {
+        images: [9, 10, 11].map((i) => `zombie_n_skeleton2-${i}.png`),
+      },
+      right: {
+        images: [18, 19, 20].map((i) => `zombie_n_skeleton2-${i}.png`),
+      },
+    },
+  },
+
+  skeleton: {
+    base: {
+      scale: [0.9, 0.9],
+      anchor: [0.5, 1],
+      animationSpeed: (1 / 60) * 3,
+    },
+    states: {
+      stationary: {
+        images: [`zombie_n_skeleton2-3.png`],
+      },
+      down: {
+        images: [3, 4, 5].map((i) => `zombie_n_skeleton2-${i}.png`),
+      },
+      up: {
+        images: [30, 31, 32].map((i) => `zombie_n_skeleton2-${i}.png`),
+      },
+      left: {
+        images: [12, 13, 14].map((i) => `zombie_n_skeleton2-${i}.png`),
+      },
+      right: {
+        images: [21, 22, 23].map((i) => `zombie_n_skeleton2-${i}.png`),
+      },
+    }
+  }
 };
 
 const textureCache = new WeakMap();
@@ -97,7 +145,7 @@ export default class Character {
 
   private setState(state: CharacterState, updateTextures = true) {
     if (state === this.currentState) {
-      return
+      return;
     }
 
     const characterInfo = Object.assign(

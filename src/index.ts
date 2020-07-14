@@ -2,7 +2,7 @@ import * as PIXI from 'pixi.js';
 import * as random from '@callumacrae/utils/random';
 
 import World from './world';
-import Character, { Command } from './character';
+import Character, { Command, InstructionFnType } from './character';
 
 const app = new PIXI.Application({
   backgroundColor: 0x211f27,
@@ -24,10 +24,10 @@ app.loader.load((loader, resources) => {
   worldContainer.position.set(80, 98);
   app.stage.addChild(worldContainer);
 
-  const character = new Character('robot');
-  world.add(character);
-  character.setPosition([7, 3]);
-  character.setInstructions(({ previousCommands, availableCommands }) => {
+  const randomMovement: InstructionFnType = ({
+    previousCommands,
+    availableCommands,
+  }) => {
     const previousCommand = previousCommands[previousCommands.length - 1];
     const oppositeCommand = {
       up: 'down',
@@ -41,19 +41,43 @@ app.loader.load((loader, resources) => {
     }
 
     return random.pick(availableCommands);
-  });
+  };
+
+  const characters: Character[] = [];
+
+  const player = new Character('robot');
+  world.add(player);
+  player.setPosition([7, 3]);
+  player.setInstructions(randomMovement);
+  characters.push(player);
+
+  const zombie = new Character('zombie');
+  world.add(zombie);
+  zombie.setPosition([11, 8]);
+  zombie.setInstructions(randomMovement);
+  characters.push(zombie);
+
+  const skeleton = new Character('skeleton');
+  world.add(skeleton);
+  skeleton.setPosition([1, 5]);
+  skeleton.setInstructions(randomMovement);
+  characters.push(skeleton);
 
   const instructionEvery = 1000;
 
   let timeSinceLastInstruction = 0;
   app.ticker.add((delta) => {
-    character.update(delta, timeSinceLastInstruction);
+    characters.forEach((character) =>
+      character.update(delta, timeSinceLastInstruction)
+    );
 
     timeSinceLastInstruction += app.ticker.elapsedMS;
 
     if (timeSinceLastInstruction > instructionEvery) {
       timeSinceLastInstruction = 0;
-      character.runInstruction(instructionEvery);
+      characters.forEach((character) =>
+        character.runInstruction(instructionEvery)
+      );
     }
   });
 });
