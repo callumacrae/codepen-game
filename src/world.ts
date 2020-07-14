@@ -1,6 +1,8 @@
 import * as PIXI from 'pixi.js';
 import * as random from '@callumacrae/utils/random';
 
+import Character from './character';
+
 const tiles = {
   background: {
     topLeft: 0,
@@ -29,12 +31,18 @@ const tiles = {
 export default class World {
   width: number;
   height: number;
+  tileWidth: number;
+  tileHeight: number;
   collisionMap: number[];
   tileMap: number[];
+  private container?: PIXI.Container;
 
   constructor(width = 20, height = 13) {
     this.width = width;
     this.height = height;
+
+    this.tileWidth = 32;
+    this.tileHeight = 32;
 
     this.collisionMap = this.generateCollisionMap();
     this.tileMap = this.generateTileMap();
@@ -63,8 +71,19 @@ export default class World {
     ].map(n => n === 2 ? random.value() < 0.2 ? 1 : 0 : n);
   }
 
+  private getId(x: number, y: number) {
+    return y * this.width + x;
+  }
+
+  public isGround(x: number, y: number) {
+    if (y < 0 || y >= this.height || x < 0 || x >= this.width) {
+      return false;
+    }
+    return !this.collisionMap[this.getId(x, y)];
+  }
+
   private generateTileMap() {
-    const { width, height, collisionMap } = this;
+    const { width, height } = this;
 
     const tileMap: number[] = [];
 
@@ -78,37 +97,29 @@ export default class World {
       return Array.isArray(id) ? random.pick(id) : id;
     };
 
-    const getId = (x: number, y: number) => y * width + x;
-    const isColliding = (x: number, y: number) => {
-      if (y < 0 || y >= height || x < 0 || x >= width) {
-        return true;
-      }
-      return !!collisionMap[getId(x, y)];
-    };
-
     for (let x = 0; x < width; x++) {
       for (let y = 0; y < height + 1; y++) {
-        const id = getId(x, y);
-        const colliding = isColliding(x, y);
+        const id = this.getId(x, y);
+        const colliding = !this.isGround(x, y);
 
         if (colliding) {
-          if (!isColliding(x, y - 1)) {
+          if (this.isGround(x, y - 1)) {
             tileMap[id] = getTile('presentational', 'below');
           }
           continue;
         }
 
         const collisions = [];
-        if (isColliding(x, y - 1)) {
+        if (!this.isGround(x, y - 1)) {
           collisions.push('top');
         }
-        if (isColliding(x, y + 1)) {
+        if (!this.isGround(x, y + 1)) {
           collisions.push('bottom');
         }
-        if (isColliding(x - 1, y)) {
+        if (!this.isGround(x - 1, y)) {
           collisions.push('left');
         }
-        if (isColliding(x + 1, y)) {
+        if (!this.isGround(x + 1, y)) {
           collisions.push('right');
         }
 
@@ -131,7 +142,7 @@ export default class World {
     const { width, height, tileMap } = this;
 
     const textures = PIXI.utils.TextureCache;
-    const background = new PIXI.Container();
+    const container = new PIXI.Container();
 
     for (let x = 0; x < width; x++) {
       for (let y = 0; y < height + 1; y++) {
@@ -144,11 +155,23 @@ export default class World {
         const tile = new PIXI.Sprite(textures[`dungeon_tiles-${tileId}.png`]);
         tile.scale.set(2, 2);
 
-        tile.position.set(x * 32, y * 32);
-        background.addChild(tile);
+        tile.position.set(x * this.tileWidth, y * this.tileHeight);
+        container.addChild(tile);
       }
     }
 
-    return background;
+    this.container = container;
+    return container;
+  }
+
+  public add(character: Character) {
+    if (!this.container) {
+      throw new Error(
+        "Can't add character to a world that hasn't been drawn yet."
+      );
+    }
+    this.container.addChild(character);
+
+    character.setWorld(this);
   }
 }
