@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 const mode =
-  process.env.NODE_ENV === 'development' ? 'development' : 'production';
+  process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
 module.exports = {
   mode,
@@ -19,7 +19,7 @@ module.exports = {
     contentBase: path.resolve(__dirname, './dist'),
     port: 8080,
   },
-  devtool: 'inline-source-map',
+  devtool: mode === 'development' ? 'eval-cheap-source-map' : 'source-map',
   module: {
     rules: [
       {
@@ -52,5 +52,6 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [{ from: 'public/assets', to: 'assets' }],
     }),
+    // new require('webpack-bundle-analyzer').BundleAnalyzerPlugin,
   ],
 };
