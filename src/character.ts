@@ -1,17 +1,28 @@
 import * as PIXI from 'pixi.js';
+import * as random from '@callumacrae/utils/random';
 
 import World from './world';
 
+type Position = [number, number];
 type CharacterType = 'robot' | 'zombie' | 'skeleton';
 type CharacterState = 'stationary' | 'down' | 'up' | 'left' | 'right';
 
 export type Command = 'left' | 'right' | 'up' | 'down';
 export interface InstructionData {
   availableCommands: Command[];
-  position: [number, number];
+  position: Position;
   previousCommands: Command[];
+  enemyPositions: Position[];
+  worldData: {
+    width: number;
+    height: number;
+    collisionMap: number[];
+  };
 }
-export type InstructionFnType = (data: InstructionData) => Command;
+export type InstructionFnType = (
+  data: InstructionData,
+  libraries: { random: any }
+) => Command;
 
 interface BaseStateObject {
   scale?: [number, number];
@@ -130,7 +141,8 @@ export default class Character {
   private type: CharacterType;
   private currentState?: CharacterState;
   private world?: World;
-  private currentPosition?: [number, number];
+  private currentPosition?: Position;
+  private realPosition?: Position;
   private instructionFn?: InstructionFnType;
   private tweenDuration?: (duration: number) => void;
   private previousCommands: Command[];
@@ -178,7 +190,19 @@ export default class Character {
     this.currentState = state;
   }
 
-  setPosition(position: [number, number], animationDuration = 0) {
+  getPosition(): Position {
+    if (!this.currentPosition) {
+      throw new Error("Trying to get position when there isn't one set.");
+    }
+
+    return this.currentPosition.slice() as Position;
+  }
+
+  getRealPosition(): Position | undefined {
+    return this.realPosition;
+  }
+
+  setPosition(position: Position, animationDuration = 0) {
     if (!this.world) {
       throw new Error(
         "Can't set position of character that isn't in world yet."
@@ -195,20 +219,20 @@ export default class Character {
     }
 
     const { tileWidth, tileHeight } = this.world;
-    const goTo = ([x, y]: [number, number]) =>
+    const goTo = ([x, y]: Position) =>
       this.sprite.position.set((x + 0.5) * tileWidth, (y + 1) * tileHeight);
 
     if (animationDuration && oldPosition) {
       const from = oldPosition;
       const to = position;
-      const duration = animationDuration;
       this.tweenDuration = (elapsed) => {
-        const factor = elapsed / duration;
+        const factor = elapsed / animationDuration;
 
-        goTo([
+        this.realPosition = [
           from[0] + (to[0] - from[0]) * factor,
           from[1] + (to[1] - from[1]) * factor,
-        ]);
+        ];
+        goTo(this.realPosition);
       };
     } else {
       goTo(position);
@@ -264,14 +288,25 @@ export default class Character {
       availableCommands.push('right');
     }
 
+    const otherCharacters = this.world.getCharacters();
+    const enemyPositions = otherCharacters
+      .filter((character) => character !== this)
+      .map((character) => character.getPosition());
+
     // Pass copies of data in so that it can't be tampered with
     const data: InstructionData = {
       availableCommands: availableCommands.slice(),
-      position: position.slice() as [number, number],
+      position: position.slice() as Position,
       previousCommands: this.previousCommands.slice(),
+      enemyPositions,
+      worldData: {
+        width: this.world.width,
+        height: this.world.height,
+        collisionMap: this.world.collisionMap.slice(),
+      },
     };
 
-    const command = this.instructionFn(data);
+    const command = this.instructionFn(data, { random });
 
     if (!data.availableCommands.includes(command)) {
       throw new Error('Unavailable command used.');

@@ -36,6 +36,7 @@ export default class World {
   collisionMap: number[];
   tileMap: number[];
   private container?: PIXI.Container;
+  private characters: Character[];
 
   constructor(width = 20, height = 13) {
     this.width = width;
@@ -46,6 +47,8 @@ export default class World {
 
     this.collisionMap = this.generateCollisionMap();
     this.tileMap = this.generateTileMap();
+
+    this.characters = [];
   }
 
   private generateCollisionMap() {
@@ -171,7 +174,12 @@ export default class World {
       );
     }
     this.container.addChild(character.getSprite());
+    this.characters.push(character);
 
     character.setWorld(this);
+  }
+
+  public getCharacters() {
+    return this.characters.slice();
   }
 }

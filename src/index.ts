@@ -1,5 +1,4 @@
 import * as PIXI from 'pixi.js';
-import * as random from '@callumacrae/utils/random';
 
 import World from './world';
 import Character, { Command, InstructionFnType } from './character';
@@ -24,10 +23,10 @@ app.loader.load((loader, resources) => {
   worldContainer.position.set(80, 98);
   app.stage.addChild(worldContainer);
 
-  const randomMovement: InstructionFnType = ({
-    previousCommands,
-    availableCommands,
-  }) => {
+  const randomMovement: InstructionFnType = (
+    { previousCommands, availableCommands },
+    { random }
+  ) => {
     const previousCommand = previousCommands[previousCommands.length - 1];
     const oppositeCommand = {
       up: 'down',
@@ -48,7 +47,10 @@ app.loader.load((loader, resources) => {
   const player = new Character('robot');
   world.add(player);
   player.setPosition([7, 3]);
-  player.setInstructions(randomMovement);
+  player.setInstructions((data, libs) => {
+    // console.log(data);
+    return randomMovement(data, libs);
+  });
   characters.push(player);
 
   const zombie = new Character('zombie');
@@ -65,11 +67,29 @@ app.loader.load((loader, resources) => {
 
   const instructionEvery = 1000;
 
+  const isColliding = (a: Character, b: Character) => {
+    const aPosition = a.getRealPosition();
+    const bPosition = b.getRealPosition();
+
+    if (!aPosition || !bPosition) {
+      return false;
+    }
+
+    return (
+      Math.abs(aPosition[0] - bPosition[0]) < 1 &&
+      Math.abs(aPosition[1] - bPosition[1]) < 1
+    );
+  };
+
   let timeSinceLastInstruction = 0;
   app.ticker.add((delta) => {
     characters.forEach((character) =>
       character.update(delta, timeSinceLastInstruction)
     );
+
+    if (isColliding(player, zombie) || isColliding(player, skeleton)) {
+      console.log('colliding');
+    }
 
     timeSinceLastInstruction += app.ticker.elapsedMS;
 
