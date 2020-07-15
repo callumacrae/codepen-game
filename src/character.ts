@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js';
 import * as random from '@callumacrae/utils/random';
+import shortestPath from './utils/shortest-path';
 
 import World from './world';
 
@@ -253,6 +254,7 @@ export default class Character {
         "Trying to teleport character which isn't attached to a world"
       );
     }
+
     let max = 100;
     while (max--) {
       const randomPosition: Position = [
@@ -260,9 +262,24 @@ export default class Character {
         random.floorRange(0, this.world.height + 1),
       ];
 
-      if (this.world.isGround(randomPosition[0], randomPosition[1])) {
-        this.setPosition(randomPosition);
+      if (!this.world.isGround(randomPosition[0], randomPosition[1])) {
+        continue;
       }
+
+      const libs = {
+        random,
+        // Typescript is being a dick, this.world is always defined
+        isGround: (x: number, y: number) =>
+          this.world ? this.world.isGround(x, y) : false,
+      };
+
+      // This tests whether the character is being teleported to an island
+      const path = shortestPath(randomPosition, [0, 5], libs.isGround, random);
+      if (path === 'NO_PATH') {
+        continue;
+      }
+
+      this.setPosition(randomPosition);
     }
   }
 
