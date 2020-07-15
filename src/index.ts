@@ -4,7 +4,7 @@ import World from './world';
 import Character from './character';
 
 import randomMovement from './algorithms/01-random-movement';
-import betterFind from './algorithms/03-better-find';
+import shortestPath from './algorithms/04-shortest-path';
 
 const app = new PIXI.Application({
   backgroundColor: 0x211f27,
@@ -40,7 +40,7 @@ app.loader.load((loader, resources) => {
   const zombie = new Character('zombie');
   world.add(zombie);
   zombie.setPosition([10, 8]);
-  zombie.setInstructions(betterFind);
+  zombie.setInstructions(shortestPath);
   characters.push(zombie);
 
   // const skeleton = new Character('skeleton');
@@ -49,7 +49,7 @@ app.loader.load((loader, resources) => {
   // skeleton.setInstructions(randomMovement);
   // characters.push(skeleton);
 
-  const instructionEvery = 1000;
+  const instructionEvery = 500;
 
   const isColliding = (a: Character, b: Character) => {
     const aPosition = a.getRealPosition();

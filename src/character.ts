@@ -3,7 +3,7 @@ import * as random from '@callumacrae/utils/random';
 
 import World from './world';
 
-type Position = [number, number];
+export type Position = [number, number];
 type CharacterType = 'robot' | 'zombie' | 'skeleton';
 type CharacterState = 'stationary' | 'down' | 'up' | 'left' | 'right';
 
@@ -21,7 +21,7 @@ export interface InstructionData {
 }
 export type InstructionFnType = (
   data: InstructionData,
-  libraries: { random: any }
+  libraries: { random: any; isGround: (x: number, y: number) => boolean }
 ) => Command;
 
 interface BaseStateObject {
@@ -316,7 +316,14 @@ export default class Character {
       },
     };
 
-    const command = this.instructionFn(data, { random });
+    const libs = {
+      random,
+      isGround: (x: number, y: number) =>
+        // Typescript is being a dick, this.world is always defined
+        this.world ? this.world.isGround(x, y) : false,
+    };
+
+    const command = this.instructionFn(data, libs);
 
     if (!data.availableCommands.includes(command)) {
       throw new Error('Unavailable command used.');
