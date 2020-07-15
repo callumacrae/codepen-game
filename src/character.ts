@@ -247,6 +247,25 @@ export default class Character {
     this.currentPosition = position;
   }
 
+  teleport() {
+    if (!this.world) {
+      throw new Error(
+        "Trying to teleport character which isn't attached to a world"
+      );
+    }
+    let max = 100;
+    while (max--) {
+      const randomPosition: Position = [
+        random.floorRange(0, this.world.width + 1),
+        random.floorRange(0, this.world.height + 1),
+      ];
+
+      if (this.world.isGround(randomPosition[0], randomPosition[1])) {
+        this.setPosition(randomPosition);
+      }
+    }
+  }
+
   isHostile() {
     return this.hostile;
   }

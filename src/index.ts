@@ -72,7 +72,8 @@ app.loader.load((loader, resources) => {
     );
 
     if (isColliding(player, zombie)) {
-      console.log('colliding');
+      // This is actually horrifically buggy, but I LOVE IT
+      player.teleport();
     }
 
     timeSinceLastInstruction += app.ticker.elapsedMS;
