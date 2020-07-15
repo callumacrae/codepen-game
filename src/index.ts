@@ -1,7 +1,10 @@
 import * as PIXI from 'pixi.js';
 
 import World from './world';
-import Character, { Command, InstructionFnType } from './character';
+import Character from './character';
+
+import randomMovement from './algorithms/01-random-movement';
+import shittyFind from './algorithms/02-shitty-find';
 
 const app = new PIXI.Application({
   backgroundColor: 0x211f27,
@@ -23,28 +26,9 @@ app.loader.load((loader, resources) => {
   worldContainer.position.set(80, 92);
   app.stage.addChild(worldContainer);
 
-  const randomMovement: InstructionFnType = (
-    { previousCommands, availableCommands },
-    { random }
-  ) => {
-    const previousCommand = previousCommands[previousCommands.length - 1];
-    const oppositeCommand = {
-      up: 'down',
-      down: 'up',
-      left: 'right',
-      right: 'left',
-    }[previousCommand] as Command;
-
-    if (oppositeCommand && availableCommands.length > 1) {
-      availableCommands.splice(availableCommands.indexOf(oppositeCommand), 1);
-    }
-
-    return random.pick(availableCommands);
-  };
-
   const characters: Character[] = [];
 
-  const player = new Character('robot');
+  const player = new Character('robot', false);
   world.add(player);
   player.setPosition([7, 3]);
   player.setInstructions((data, libs) => {
@@ -56,14 +40,14 @@ app.loader.load((loader, resources) => {
   const zombie = new Character('zombie');
   world.add(zombie);
   zombie.setPosition([11, 8]);
-  zombie.setInstructions(randomMovement);
+  zombie.setInstructions(shittyFind);
   characters.push(zombie);
 
-  const skeleton = new Character('skeleton');
-  world.add(skeleton);
-  skeleton.setPosition([1, 5]);
-  skeleton.setInstructions(randomMovement);
-  characters.push(skeleton);
+  // const skeleton = new Character('skeleton');
+  // world.add(skeleton);
+  // skeleton.setPosition([1, 5]);
+  // skeleton.setInstructions(randomMovement);
+  // characters.push(skeleton);
 
   const instructionEvery = 1000;
 
@@ -87,7 +71,7 @@ app.loader.load((loader, resources) => {
       character.update(delta, timeSinceLastInstruction)
     );
 
-    if (isColliding(player, zombie) || isColliding(player, skeleton)) {
+    if (isColliding(player, zombie)) {
       console.log('colliding');
     }
 

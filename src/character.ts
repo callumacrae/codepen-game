@@ -139,6 +139,7 @@ const getTexturesForState = (type: CharacterType, state: CharacterState) => {
 export default class Character {
   private sprite: PIXI.AnimatedSprite;
   private type: CharacterType;
+  private hostile: boolean;
   private currentState?: CharacterState;
   private world?: World;
   private currentPosition?: Position;
@@ -147,11 +148,13 @@ export default class Character {
   private tweenDuration?: (duration: number) => void;
   private previousCommands: Command[];
 
-  constructor(type: CharacterType) {
+  constructor(type: CharacterType, hostile = true) {
     const initialState = 'stationary';
     const textureArray = getTexturesForState(type, initialState);
 
     this.sprite = new PIXI.AnimatedSprite(textureArray, false);
+
+    this.hostile = hostile;
 
     this.type = type;
     this.setState(initialState, false);
@@ -244,6 +247,10 @@ export default class Character {
     this.currentPosition = position;
   }
 
+  isHostile() {
+    return this.hostile;
+  }
+
   update(delta: number, timeSinceLastInstruction: number) {
     this.sprite.update(delta);
 
@@ -291,9 +298,9 @@ export default class Character {
       availableCommands.push('right');
     }
 
-    const otherCharacters = this.world.getCharacters();
-    const enemyPositions = otherCharacters
-      .filter((character) => character !== this)
+    const characters = this.world.getCharacters();
+    const enemyPositions = characters
+      .filter((character) => character.isHostile() !== this.hostile)
       .map((character) => character.getPosition());
 
     // Pass copies of data in so that it can't be tampered with
