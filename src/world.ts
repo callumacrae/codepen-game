@@ -28,13 +28,15 @@ const tiles = {
   },
 };
 
+type Corner = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
+
 export default class World {
   width: number;
   height: number;
   tileWidth: number;
   tileHeight: number;
   collisionMap: number[];
-  tileMap: number[];
+  tileMap: [number, Corner[]][];
   private container?: PIXI.Container;
   private characters: Character[];
 
@@ -88,7 +90,7 @@ export default class World {
   private generateTileMap() {
     const { width, height } = this;
 
-    const tileMap: number[] = [];
+    const tileMap: [number, Corner[]][] = [];
 
     const getTile = (category: string, tile: string) => {
       // @ts-ignore
@@ -107,7 +109,9 @@ export default class World {
 
         if (colliding) {
           if (this.isGround(x, y - 1)) {
-            tileMap[id] = getTile('presentational', 'below');
+            tileMap[id] = [getTile('presentational', 'below'), []];
+          } else {
+            tileMap[id] = [-1, []];
           }
           continue;
         }
@@ -134,7 +138,41 @@ export default class World {
               .join('')
           : 'ground';
 
-        tileMap[id] = getTile('background', nameString);
+        const corners: Corner[] = [];
+
+        if (
+          !collisions.includes('top') &&
+          !collisions.includes('left') &&
+          !this.isGround(x - 1, y - 1)
+        ) {
+          corners.push('topLeft');
+        }
+
+        if (
+          !collisions.includes('top') &&
+          !collisions.includes('right') &&
+          !this.isGround(x + 1, y - 1)
+        ) {
+          corners.push('topRight');
+        }
+
+        if (
+          !collisions.includes('bottom') &&
+          !collisions.includes('left') &&
+          !this.isGround(x - 1, y + 1)
+        ) {
+          corners.push('bottomLeft');
+        }
+
+        if (
+          !collisions.includes('bottom') &&
+          !collisions.includes('right') &&
+          !this.isGround(x + 1, y + 1)
+        ) {
+          corners.push('bottomRight');
+        }
+
+        tileMap[id] = [getTile('background', nameString), corners];
       }
     }
 
@@ -149,7 +187,8 @@ export default class World {
 
     for (let x = 0; x < width; x++) {
       for (let y = 0; y < height + 1; y++) {
-        const tileId = tileMap[x + y * width];
+        const tileObj = tileMap[x + y * width];
+        const tileId = tileObj[0];
 
         if (tileId === -1) {
           continue;
@@ -160,6 +199,25 @@ export default class World {
 
         tile.position.set(x * this.tileWidth, y * this.tileHeight);
         container.addChild(tile);
+
+        const corners = tileObj[1];
+        corners.forEach((corner) => {
+          const cornerTile = new PIXI.Sprite(textures[`${corner}.png`]);
+          cornerTile.scale.set(2, 2);
+
+          const offset = {
+            topLeft: [0, 0],
+            topRight: [22, 0],
+            bottomLeft: [0, 22],
+            bottomRight: [22, 22],
+          }[corner];
+
+          cornerTile.position.set(
+            x * this.tileWidth + offset[0],
+            y * this.tileHeight + offset[1]
+          );
+          container.addChild(cornerTile);
+        });
       }
     }
 

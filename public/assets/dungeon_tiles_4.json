@@ -1,5 +1,21 @@
 {"frames": {
 
+"bottomLeft.png":
+{
+	"frame": {"x":55,"y":475,"w":5,"h":5},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":5,"h":5},
+	"sourceSize": {"w":5,"h":5}
+},
+"bottomRight.png":
+{
+	"frame": {"x":62,"y":475,"w":5,"h":5},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":5,"h":5},
+	"sourceSize": {"w":5,"h":5}
+},
 "dungeon_tiles-0.png":
 {
 	"frame": {"x":1,"y":1,"w":16,"h":16},
@@ -10,7 +26,7 @@
 },
 "dungeon_tiles-1.png":
 {
-	"frame": {"x":1,"y":19,"w":16,"h":16},
+	"frame": {"x":19,"y":1,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -18,7 +34,7 @@
 },
 "dungeon_tiles-2.png":
 {
-	"frame": {"x":73,"y":199,"w":16,"h":16},
+	"frame": {"x":91,"y":217,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -26,7 +42,7 @@
 },
 "dungeon_tiles-3.png":
 {
-	"frame": {"x":1,"y":307,"w":16,"h":16},
+	"frame": {"x":19,"y":253,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -34,7 +50,7 @@
 },
 "dungeon_tiles-4.png":
 {
-	"frame": {"x":73,"y":253,"w":16,"h":16},
+	"frame": {"x":91,"y":271,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -42,7 +58,7 @@
 },
 "dungeon_tiles-5.png":
 {
-	"frame": {"x":19,"y":343,"w":16,"h":16},
+	"frame": {"x":37,"y":307,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -50,7 +66,7 @@
 },
 "dungeon_tiles-6.png":
 {
-	"frame": {"x":55,"y":325,"w":16,"h":16},
+	"frame": {"x":73,"y":325,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -58,7 +74,7 @@
 },
 "dungeon_tiles-7.png":
 {
-	"frame": {"x":109,"y":307,"w":16,"h":16},
+	"frame": {"x":1,"y":361,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -66,7 +82,7 @@
 },
 "dungeon_tiles-8.png":
 {
-	"frame": {"x":55,"y":379,"w":16,"h":16},
+	"frame": {"x":109,"y":361,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -74,7 +90,7 @@
 },
 "dungeon_tiles-9.png":
 {
-	"frame": {"x":37,"y":415,"w":16,"h":16},
+	"frame": {"x":37,"y":379,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -82,7 +98,7 @@
 },
 "dungeon_tiles-10.png":
 {
-	"frame": {"x":19,"y":1,"w":16,"h":16},
+	"frame": {"x":37,"y":1,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -90,7 +106,7 @@
 },
 "dungeon_tiles-11.png":
 {
-	"frame": {"x":1,"y":73,"w":16,"h":16},
+	"frame": {"x":55,"y":19,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -98,7 +114,7 @@
 },
 "dungeon_tiles-12.png":
 {
-	"frame": {"x":73,"y":19,"w":16,"h":16},
+	"frame": {"x":91,"y":37,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -106,7 +122,7 @@
 },
 "dungeon_tiles-13.png":
 {
-	"frame": {"x":19,"y":109,"w":16,"h":16},
+	"frame": {"x":37,"y":73,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -114,7 +130,7 @@
 },
 "dungeon_tiles-14.png":
 {
-	"frame": {"x":91,"y":55,"w":16,"h":16},
+	"frame": {"x":109,"y":91,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -122,7 +138,7 @@
 },
 "dungeon_tiles-15.png":
 {
-	"frame": {"x":37,"y":145,"w":16,"h":16},
+	"frame": {"x":55,"y":127,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -130,7 +146,7 @@
 },
 "dungeon_tiles-16.png":
 {
-	"frame": {"x":109,"y":109,"w":16,"h":16},
+	"frame": {"x":1,"y":163,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -138,7 +154,7 @@
 },
 "dungeon_tiles-17.png":
 {
-	"frame": {"x":55,"y":181,"w":16,"h":16},
+	"frame": {"x":73,"y":181,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -146,7 +162,7 @@
 },
 "dungeon_tiles-18.png":
 {
-	"frame": {"x":55,"y":199,"w":16,"h":16},
+	"frame": {"x":73,"y":199,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -154,7 +170,7 @@
 },
 "dungeon_tiles-19.png":
 {
-	"frame": {"x":55,"y":217,"w":16,"h":16},
+	"frame": {"x":73,"y":217,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -162,7 +178,7 @@
 },
 "dungeon_tiles-20.png":
 {
-	"frame": {"x":91,"y":181,"w":16,"h":16},
+	"frame": {"x":109,"y":217,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -170,7 +186,7 @@
 },
 "dungeon_tiles-21.png":
 {
-	"frame": {"x":109,"y":181,"w":16,"h":16},
+	"frame": {"x":1,"y":235,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -178,7 +194,7 @@
 },
 "dungeon_tiles-22.png":
 {
-	"frame": {"x":1,"y":289,"w":16,"h":16},
+	"frame": {"x":19,"y":235,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -186,7 +202,7 @@
 },
 "dungeon_tiles-23.png":
 {
-	"frame": {"x":109,"y":397,"w":16,"h":13},
+	"frame": {"x":109,"y":412,"w":16,"h":13},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":13},
@@ -194,7 +210,7 @@
 },
 "dungeon_tiles-24.png":
 {
-	"frame": {"x":19,"y":271,"w":16,"h":16},
+	"frame": {"x":37,"y":235,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -202,7 +218,7 @@
 },
 "dungeon_tiles-25.png":
 {
-	"frame": {"x":37,"y":253,"w":16,"h":16},
+	"frame": {"x":55,"y":235,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -210,7 +226,7 @@
 },
 "dungeon_tiles-26.png":
 {
-	"frame": {"x":55,"y":235,"w":16,"h":16},
+	"frame": {"x":73,"y":235,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -218,7 +234,7 @@
 },
 "dungeon_tiles-27.png":
 {
-	"frame": {"x":73,"y":217,"w":16,"h":16},
+	"frame": {"x":91,"y":235,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -226,7 +242,7 @@
 },
 "dungeon_tiles-28.png":
 {
-	"frame": {"x":91,"y":199,"w":16,"h":16},
+	"frame": {"x":109,"y":235,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -234,7 +250,7 @@
 },
 "dungeon_tiles-29.png":
 {
-	"frame": {"x":109,"y":199,"w":16,"h":16},
+	"frame": {"x":1,"y":253,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -242,7 +258,7 @@
 },
 "dungeon_tiles-30.png":
 {
-	"frame": {"x":19,"y":289,"w":16,"h":16},
+	"frame": {"x":37,"y":253,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -250,7 +266,7 @@
 },
 "dungeon_tiles-31.png":
 {
-	"frame": {"x":37,"y":271,"w":16,"h":16},
+	"frame": {"x":55,"y":253,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -258,7 +274,7 @@
 },
 "dungeon_tiles-32.png":
 {
-	"frame": {"x":55,"y":253,"w":16,"h":16},
+	"frame": {"x":73,"y":253,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -266,7 +282,7 @@
 },
 "dungeon_tiles-33.png":
 {
-	"frame": {"x":73,"y":235,"w":16,"h":16},
+	"frame": {"x":91,"y":253,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -274,7 +290,7 @@
 },
 "dungeon_tiles-34.png":
 {
-	"frame": {"x":91,"y":217,"w":16,"h":16},
+	"frame": {"x":109,"y":253,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -282,7 +298,7 @@
 },
 "dungeon_tiles-35.png":
 {
-	"frame": {"x":109,"y":217,"w":16,"h":16},
+	"frame": {"x":1,"y":271,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -290,7 +306,7 @@
 },
 "dungeon_tiles-36.png":
 {
-	"frame": {"x":1,"y":325,"w":16,"h":16},
+	"frame": {"x":19,"y":271,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -298,7 +314,7 @@
 },
 "dungeon_tiles-37.png":
 {
-	"frame": {"x":19,"y":307,"w":16,"h":16},
+	"frame": {"x":37,"y":271,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -306,7 +322,7 @@
 },
 "dungeon_tiles-38.png":
 {
-	"frame": {"x":37,"y":289,"w":16,"h":16},
+	"frame": {"x":55,"y":271,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -314,7 +330,7 @@
 },
 "dungeon_tiles-39.png":
 {
-	"frame": {"x":55,"y":271,"w":16,"h":16},
+	"frame": {"x":73,"y":271,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -322,7 +338,7 @@
 },
 "dungeon_tiles-40.png":
 {
-	"frame": {"x":91,"y":235,"w":16,"h":16},
+	"frame": {"x":109,"y":271,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -330,7 +346,7 @@
 },
 "dungeon_tiles-41.png":
 {
-	"frame": {"x":109,"y":235,"w":16,"h":16},
+	"frame": {"x":1,"y":289,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -338,7 +354,7 @@
 },
 "dungeon_tiles-42.png":
 {
-	"frame": {"x":1,"y":343,"w":16,"h":16},
+	"frame": {"x":19,"y":289,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -346,7 +362,7 @@
 },
 "dungeon_tiles-43.png":
 {
-	"frame": {"x":19,"y":325,"w":16,"h":16},
+	"frame": {"x":37,"y":289,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -354,7 +370,7 @@
 },
 "dungeon_tiles-44.png":
 {
-	"frame": {"x":37,"y":307,"w":16,"h":16},
+	"frame": {"x":55,"y":289,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -362,7 +378,7 @@
 },
 "dungeon_tiles-45.png":
 {
-	"frame": {"x":55,"y":289,"w":16,"h":16},
+	"frame": {"x":73,"y":289,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -370,7 +386,7 @@
 },
 "dungeon_tiles-46.png":
 {
-	"frame": {"x":73,"y":271,"w":16,"h":16},
+	"frame": {"x":91,"y":289,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -378,7 +394,7 @@
 },
 "dungeon_tiles-47.png":
 {
-	"frame": {"x":91,"y":253,"w":16,"h":16},
+	"frame": {"x":109,"y":289,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -386,7 +402,7 @@
 },
 "dungeon_tiles-48.png":
 {
-	"frame": {"x":109,"y":253,"w":16,"h":16},
+	"frame": {"x":1,"y":307,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -394,7 +410,7 @@
 },
 "dungeon_tiles-49.png":
 {
-	"frame": {"x":1,"y":361,"w":16,"h":16},
+	"frame": {"x":19,"y":307,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -402,7 +418,7 @@
 },
 "dungeon_tiles-50.png":
 {
-	"frame": {"x":37,"y":325,"w":16,"h":16},
+	"frame": {"x":55,"y":307,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -410,7 +426,7 @@
 },
 "dungeon_tiles-51.png":
 {
-	"frame": {"x":55,"y":307,"w":16,"h":16},
+	"frame": {"x":73,"y":307,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -418,7 +434,7 @@
 },
 "dungeon_tiles-52.png":
 {
-	"frame": {"x":73,"y":289,"w":16,"h":16},
+	"frame": {"x":91,"y":307,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -426,7 +442,7 @@
 },
 "dungeon_tiles-53.png":
 {
-	"frame": {"x":91,"y":271,"w":16,"h":16},
+	"frame": {"x":109,"y":307,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -434,7 +450,7 @@
 },
 "dungeon_tiles-54.png":
 {
-	"frame": {"x":109,"y":271,"w":16,"h":16},
+	"frame": {"x":1,"y":325,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -442,7 +458,7 @@
 },
 "dungeon_tiles-55.png":
 {
-	"frame": {"x":1,"y":379,"w":16,"h":16},
+	"frame": {"x":19,"y":325,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -450,7 +466,7 @@
 },
 "dungeon_tiles-56.png":
 {
-	"frame": {"x":19,"y":361,"w":16,"h":16},
+	"frame": {"x":37,"y":325,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -458,7 +474,7 @@
 },
 "dungeon_tiles-57.png":
 {
-	"frame": {"x":37,"y":343,"w":16,"h":16},
+	"frame": {"x":55,"y":325,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -466,7 +482,7 @@
 },
 "dungeon_tiles-58.png":
 {
-	"frame": {"x":55,"y":448,"w":16,"h":13},
+	"frame": {"x":91,"y":413,"w":16,"h":13},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":13},
@@ -474,7 +490,7 @@
 },
 "dungeon_tiles-59.png":
 {
-	"frame": {"x":73,"y":430,"w":16,"h":13},
+	"frame": {"x":109,"y":427,"w":16,"h":13},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":13},
@@ -482,7 +498,7 @@
 },
 "dungeon_tiles-60.png":
 {
-	"frame": {"x":91,"y":412,"w":16,"h":13},
+	"frame": {"x":55,"y":415,"w":16,"h":13},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":13},
@@ -490,7 +506,7 @@
 },
 "dungeon_tiles-61.png":
 {
-	"frame": {"x":73,"y":307,"w":16,"h":16},
+	"frame": {"x":91,"y":325,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -498,7 +514,7 @@
 },
 "dungeon_tiles-62.png":
 {
-	"frame": {"x":91,"y":289,"w":16,"h":16},
+	"frame": {"x":109,"y":325,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -506,7 +522,7 @@
 },
 "dungeon_tiles-63.png":
 {
-	"frame": {"x":109,"y":289,"w":16,"h":16},
+	"frame": {"x":1,"y":343,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -514,7 +530,7 @@
 },
 "dungeon_tiles-64.png":
 {
-	"frame": {"x":1,"y":397,"w":16,"h":16},
+	"frame": {"x":19,"y":343,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -522,7 +538,7 @@
 },
 "dungeon_tiles-65.png":
 {
-	"frame": {"x":19,"y":379,"w":16,"h":16},
+	"frame": {"x":37,"y":343,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -530,7 +546,7 @@
 },
 "dungeon_tiles-66.png":
 {
-	"frame": {"x":37,"y":361,"w":16,"h":16},
+	"frame": {"x":55,"y":343,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -538,7 +554,7 @@
 },
 "dungeon_tiles-67.png":
 {
-	"frame": {"x":55,"y":343,"w":16,"h":16},
+	"frame": {"x":73,"y":343,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -546,7 +562,7 @@
 },
 "dungeon_tiles-68.png":
 {
-	"frame": {"x":73,"y":325,"w":16,"h":16},
+	"frame": {"x":91,"y":343,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -554,7 +570,7 @@
 },
 "dungeon_tiles-69.png":
 {
-	"frame": {"x":91,"y":307,"w":16,"h":16},
+	"frame": {"x":109,"y":343,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -562,7 +578,7 @@
 },
 "dungeon_tiles-70.png":
 {
-	"frame": {"x":1,"y":415,"w":16,"h":16},
+	"frame": {"x":1,"y":379,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -570,7 +586,7 @@
 },
 "dungeon_tiles-71.png":
 {
-	"frame": {"x":19,"y":397,"w":16,"h":16},
+	"frame": {"x":1,"y":397,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -578,7 +594,7 @@
 },
 "dungeon_tiles-72.png":
 {
-	"frame": {"x":37,"y":379,"w":16,"h":16},
+	"frame": {"x":1,"y":415,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -586,7 +602,7 @@
 },
 "dungeon_tiles-73.png":
 {
-	"frame": {"x":55,"y":361,"w":16,"h":16},
+	"frame": {"x":1,"y":433,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -594,7 +610,7 @@
 },
 "dungeon_tiles-74.png":
 {
-	"frame": {"x":73,"y":343,"w":16,"h":16},
+	"frame": {"x":1,"y":451,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -602,7 +618,7 @@
 },
 "dungeon_tiles-75.png":
 {
-	"frame": {"x":91,"y":325,"w":16,"h":16},
+	"frame": {"x":19,"y":361,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -610,7 +626,7 @@
 },
 "dungeon_tiles-76.png":
 {
-	"frame": {"x":109,"y":325,"w":16,"h":16},
+	"frame": {"x":37,"y":361,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -618,7 +634,7 @@
 },
 "dungeon_tiles-77.png":
 {
-	"frame": {"x":1,"y":433,"w":16,"h":16},
+	"frame": {"x":55,"y":361,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -626,7 +642,7 @@
 },
 "dungeon_tiles-78.png":
 {
-	"frame": {"x":19,"y":415,"w":16,"h":16},
+	"frame": {"x":73,"y":361,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -634,7 +650,7 @@
 },
 "dungeon_tiles-79.png":
 {
-	"frame": {"x":37,"y":397,"w":16,"h":16},
+	"frame": {"x":91,"y":361,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -642,7 +658,7 @@
 },
 "dungeon_tiles-80.png":
 {
-	"frame": {"x":73,"y":361,"w":16,"h":16},
+	"frame": {"x":19,"y":379,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -650,7 +666,7 @@
 },
 "dungeon_tiles-81.png":
 {
-	"frame": {"x":91,"y":343,"w":16,"h":16},
+	"frame": {"x":19,"y":397,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -658,7 +674,7 @@
 },
 "dungeon_tiles-82.png":
 {
-	"frame": {"x":109,"y":343,"w":16,"h":16},
+	"frame": {"x":19,"y":415,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -666,7 +682,7 @@
 },
 "dungeon_tiles-83.png":
 {
-	"frame": {"x":1,"y":451,"w":16,"h":16},
+	"frame": {"x":19,"y":433,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -674,7 +690,7 @@
 },
 "dungeon_tiles-84.png":
 {
-	"frame": {"x":109,"y":412,"w":16,"h":13},
+	"frame": {"x":73,"y":415,"w":16,"h":13},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":13},
@@ -682,7 +698,7 @@
 },
 "dungeon_tiles-85.png":
 {
-	"frame": {"x":55,"y":463,"w":16,"h":13},
+	"frame": {"x":91,"y":428,"w":16,"h":13},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":13},
@@ -690,7 +706,7 @@
 },
 "dungeon_tiles-86.png":
 {
-	"frame": {"x":73,"y":445,"w":16,"h":13},
+	"frame": {"x":109,"y":442,"w":16,"h":13},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":13},
@@ -698,15 +714,15 @@
 },
 "dungeon_tiles-87.png":
 {
-	"frame": {"x":91,"y":427,"w":16,"h":13},
-	"rotated": false,
+	"frame": {"x":55,"y":457,"w":16,"h":13},
+	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":13},
 	"sourceSize": {"w":16,"h":16}
 },
 "dungeon_tiles-88.png":
 {
-	"frame": {"x":109,"y":427,"w":16,"h":13},
+	"frame": {"x":73,"y":430,"w":16,"h":13},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":13},
@@ -714,7 +730,7 @@
 },
 "dungeon_tiles-89.png":
 {
-	"frame": {"x":19,"y":433,"w":16,"h":16},
+	"frame": {"x":19,"y":451,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -722,7 +738,7 @@
 },
 "dungeon_tiles-90.png":
 {
-	"frame": {"x":55,"y":397,"w":16,"h":16},
+	"frame": {"x":55,"y":379,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -738,7 +754,7 @@
 },
 "dungeon_tiles-92.png":
 {
-	"frame": {"x":91,"y":361,"w":16,"h":16},
+	"frame": {"x":91,"y":379,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -746,7 +762,7 @@
 },
 "dungeon_tiles-93.png":
 {
-	"frame": {"x":109,"y":361,"w":16,"h":16},
+	"frame": {"x":109,"y":379,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -754,7 +770,7 @@
 },
 "dungeon_tiles-94.png":
 {
-	"frame": {"x":19,"y":451,"w":16,"h":16},
+	"frame": {"x":37,"y":397,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -762,7 +778,7 @@
 },
 "dungeon_tiles-95.png":
 {
-	"frame": {"x":37,"y":433,"w":16,"h":16},
+	"frame": {"x":37,"y":415,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -770,7 +786,7 @@
 },
 "dungeon_tiles-96.png":
 {
-	"frame": {"x":55,"y":415,"w":16,"h":16},
+	"frame": {"x":37,"y":433,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -778,7 +794,7 @@
 },
 "dungeon_tiles-97.png":
 {
-	"frame": {"x":73,"y":397,"w":16,"h":16},
+	"frame": {"x":37,"y":451,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -786,7 +802,7 @@
 },
 "dungeon_tiles-98.png":
 {
-	"frame": {"x":91,"y":379,"w":16,"h":16},
+	"frame": {"x":55,"y":397,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -794,7 +810,7 @@
 },
 "dungeon_tiles-99.png":
 {
-	"frame": {"x":109,"y":379,"w":16,"h":16},
+	"frame": {"x":73,"y":397,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -802,7 +818,7 @@
 },
 "dungeon_tiles-100.png":
 {
-	"frame": {"x":1,"y":37,"w":16,"h":16},
+	"frame": {"x":55,"y":1,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -810,7 +826,7 @@
 },
 "dungeon_tiles-101.png":
 {
-	"frame": {"x":19,"y":19,"w":16,"h":16},
+	"frame": {"x":73,"y":1,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -818,7 +834,7 @@
 },
 "dungeon_tiles-102.png":
 {
-	"frame": {"x":37,"y":467,"w":16,"h":13},
+	"frame": {"x":1,"y":469,"w":16,"h":13},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":13},
@@ -826,7 +842,7 @@
 },
 "dungeon_tiles-103.png":
 {
-	"frame": {"x":37,"y":1,"w":16,"h":16},
+	"frame": {"x":91,"y":1,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -834,7 +850,7 @@
 },
 "dungeon_tiles-104.png":
 {
-	"frame": {"x":1,"y":55,"w":16,"h":16},
+	"frame": {"x":109,"y":1,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -842,7 +858,7 @@
 },
 "dungeon_tiles-105.png":
 {
-	"frame": {"x":19,"y":37,"w":16,"h":16},
+	"frame": {"x":1,"y":19,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -850,7 +866,7 @@
 },
 "dungeon_tiles-106.png":
 {
-	"frame": {"x":37,"y":19,"w":16,"h":16},
+	"frame": {"x":19,"y":19,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -858,7 +874,7 @@
 },
 "dungeon_tiles-107.png":
 {
-	"frame": {"x":55,"y":1,"w":16,"h":16},
+	"frame": {"x":37,"y":19,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -866,7 +882,7 @@
 },
 "dungeon_tiles-108.png":
 {
-	"frame": {"x":55,"y":433,"w":16,"h":13},
+	"frame": {"x":19,"y":469,"w":16,"h":13},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":13},
@@ -874,7 +890,7 @@
 },
 "dungeon_tiles-109.png":
 {
-	"frame": {"x":73,"y":415,"w":16,"h":13},
+	"frame": {"x":37,"y":469,"w":16,"h":13},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":13},
@@ -882,7 +898,7 @@
 },
 "dungeon_tiles-110.png":
 {
-	"frame": {"x":91,"y":397,"w":16,"h":13},
+	"frame": {"x":109,"y":397,"w":16,"h":13},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":13},
@@ -890,7 +906,7 @@
 },
 "dungeon_tiles-111.png":
 {
-	"frame": {"x":37,"y":451,"w":16,"h":14},
+	"frame": {"x":91,"y":397,"w":16,"h":14},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":14},
@@ -898,7 +914,7 @@
 },
 "dungeon_tiles-112.png":
 {
-	"frame": {"x":19,"y":55,"w":16,"h":16},
+	"frame": {"x":73,"y":19,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -906,7 +922,7 @@
 },
 "dungeon_tiles-113.png":
 {
-	"frame": {"x":37,"y":37,"w":16,"h":16},
+	"frame": {"x":91,"y":19,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -914,7 +930,7 @@
 },
 "dungeon_tiles-114.png":
 {
-	"frame": {"x":55,"y":19,"w":16,"h":16},
+	"frame": {"x":109,"y":19,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -922,7 +938,7 @@
 },
 "dungeon_tiles-115.png":
 {
-	"frame": {"x":73,"y":1,"w":16,"h":16},
+	"frame": {"x":1,"y":37,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -930,7 +946,7 @@
 },
 "dungeon_tiles-116.png":
 {
-	"frame": {"x":1,"y":91,"w":16,"h":16},
+	"frame": {"x":19,"y":37,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -938,7 +954,7 @@
 },
 "dungeon_tiles-117.png":
 {
-	"frame": {"x":19,"y":73,"w":16,"h":16},
+	"frame": {"x":37,"y":37,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -946,7 +962,7 @@
 },
 "dungeon_tiles-118.png":
 {
-	"frame": {"x":37,"y":55,"w":16,"h":16},
+	"frame": {"x":55,"y":37,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -954,7 +970,7 @@
 },
 "dungeon_tiles-119.png":
 {
-	"frame": {"x":55,"y":37,"w":16,"h":16},
+	"frame": {"x":73,"y":37,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -962,7 +978,7 @@
 },
 "dungeon_tiles-120.png":
 {
-	"frame": {"x":91,"y":1,"w":16,"h":16},
+	"frame": {"x":109,"y":37,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -970,7 +986,7 @@
 },
 "dungeon_tiles-121.png":
 {
-	"frame": {"x":109,"y":1,"w":16,"h":16},
+	"frame": {"x":1,"y":55,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -978,7 +994,7 @@
 },
 "dungeon_tiles-122.png":
 {
-	"frame": {"x":1,"y":109,"w":16,"h":16},
+	"frame": {"x":19,"y":55,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -986,7 +1002,7 @@
 },
 "dungeon_tiles-123.png":
 {
-	"frame": {"x":19,"y":91,"w":16,"h":16},
+	"frame": {"x":37,"y":55,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -994,7 +1010,7 @@
 },
 "dungeon_tiles-124.png":
 {
-	"frame": {"x":37,"y":73,"w":16,"h":16},
+	"frame": {"x":55,"y":55,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1002,7 +1018,7 @@
 },
 "dungeon_tiles-125.png":
 {
-	"frame": {"x":55,"y":55,"w":16,"h":16},
+	"frame": {"x":73,"y":55,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1010,7 +1026,7 @@
 },
 "dungeon_tiles-126.png":
 {
-	"frame": {"x":73,"y":37,"w":16,"h":16},
+	"frame": {"x":91,"y":55,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1018,7 +1034,7 @@
 },
 "dungeon_tiles-127.png":
 {
-	"frame": {"x":91,"y":19,"w":16,"h":16},
+	"frame": {"x":109,"y":55,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1026,7 +1042,7 @@
 },
 "dungeon_tiles-128.png":
 {
-	"frame": {"x":109,"y":19,"w":16,"h":16},
+	"frame": {"x":1,"y":73,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1034,7 +1050,7 @@
 },
 "dungeon_tiles-129.png":
 {
-	"frame": {"x":1,"y":127,"w":16,"h":16},
+	"frame": {"x":19,"y":73,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1042,7 +1058,7 @@
 },
 "dungeon_tiles-130.png":
 {
-	"frame": {"x":37,"y":91,"w":16,"h":16},
+	"frame": {"x":55,"y":73,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1050,7 +1066,7 @@
 },
 "dungeon_tiles-131.png":
 {
-	"frame": {"x":55,"y":73,"w":16,"h":16},
+	"frame": {"x":73,"y":73,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1058,7 +1074,7 @@
 },
 "dungeon_tiles-132.png":
 {
-	"frame": {"x":73,"y":55,"w":16,"h":16},
+	"frame": {"x":91,"y":73,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1066,7 +1082,7 @@
 },
 "dungeon_tiles-133.png":
 {
-	"frame": {"x":91,"y":37,"w":16,"h":16},
+	"frame": {"x":109,"y":73,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1074,7 +1090,7 @@
 },
 "dungeon_tiles-134.png":
 {
-	"frame": {"x":109,"y":37,"w":16,"h":16},
+	"frame": {"x":1,"y":91,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1082,7 +1098,7 @@
 },
 "dungeon_tiles-135.png":
 {
-	"frame": {"x":1,"y":145,"w":16,"h":16},
+	"frame": {"x":19,"y":91,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1090,7 +1106,7 @@
 },
 "dungeon_tiles-136.png":
 {
-	"frame": {"x":19,"y":127,"w":16,"h":16},
+	"frame": {"x":37,"y":91,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1098,7 +1114,7 @@
 },
 "dungeon_tiles-137.png":
 {
-	"frame": {"x":37,"y":109,"w":16,"h":16},
+	"frame": {"x":55,"y":91,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1106,7 +1122,7 @@
 },
 "dungeon_tiles-138.png":
 {
-	"frame": {"x":55,"y":91,"w":16,"h":16},
+	"frame": {"x":73,"y":91,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1114,7 +1130,7 @@
 },
 "dungeon_tiles-139.png":
 {
-	"frame": {"x":73,"y":73,"w":16,"h":16},
+	"frame": {"x":91,"y":91,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1122,7 +1138,7 @@
 },
 "dungeon_tiles-140.png":
 {
-	"frame": {"x":109,"y":55,"w":16,"h":16},
+	"frame": {"x":1,"y":109,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1130,7 +1146,7 @@
 },
 "dungeon_tiles-141.png":
 {
-	"frame": {"x":1,"y":163,"w":16,"h":16},
+	"frame": {"x":19,"y":109,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1138,7 +1154,7 @@
 },
 "dungeon_tiles-142.png":
 {
-	"frame": {"x":19,"y":145,"w":16,"h":16},
+	"frame": {"x":37,"y":109,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1146,7 +1162,7 @@
 },
 "dungeon_tiles-143.png":
 {
-	"frame": {"x":37,"y":127,"w":16,"h":16},
+	"frame": {"x":55,"y":109,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1154,7 +1170,7 @@
 },
 "dungeon_tiles-144.png":
 {
-	"frame": {"x":55,"y":109,"w":16,"h":16},
+	"frame": {"x":73,"y":109,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1162,7 +1178,7 @@
 },
 "dungeon_tiles-145.png":
 {
-	"frame": {"x":73,"y":91,"w":16,"h":16},
+	"frame": {"x":91,"y":109,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1170,7 +1186,7 @@
 },
 "dungeon_tiles-146.png":
 {
-	"frame": {"x":91,"y":73,"w":16,"h":16},
+	"frame": {"x":109,"y":109,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1178,7 +1194,7 @@
 },
 "dungeon_tiles-147.png":
 {
-	"frame": {"x":109,"y":73,"w":16,"h":16},
+	"frame": {"x":1,"y":127,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1186,7 +1202,7 @@
 },
 "dungeon_tiles-148.png":
 {
-	"frame": {"x":1,"y":181,"w":16,"h":16},
+	"frame": {"x":19,"y":127,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1194,7 +1210,7 @@
 },
 "dungeon_tiles-149.png":
 {
-	"frame": {"x":19,"y":163,"w":16,"h":16},
+	"frame": {"x":37,"y":127,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1202,7 +1218,7 @@
 },
 "dungeon_tiles-150.png":
 {
-	"frame": {"x":55,"y":127,"w":16,"h":16},
+	"frame": {"x":73,"y":127,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1210,7 +1226,7 @@
 },
 "dungeon_tiles-151.png":
 {
-	"frame": {"x":73,"y":109,"w":16,"h":16},
+	"frame": {"x":91,"y":127,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1218,7 +1234,7 @@
 },
 "dungeon_tiles-152.png":
 {
-	"frame": {"x":91,"y":91,"w":16,"h":16},
+	"frame": {"x":109,"y":127,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1226,7 +1242,7 @@
 },
 "dungeon_tiles-153.png":
 {
-	"frame": {"x":109,"y":91,"w":16,"h":16},
+	"frame": {"x":1,"y":145,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1234,7 +1250,7 @@
 },
 "dungeon_tiles-154.png":
 {
-	"frame": {"x":1,"y":199,"w":16,"h":16},
+	"frame": {"x":19,"y":145,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1242,7 +1258,7 @@
 },
 "dungeon_tiles-155.png":
 {
-	"frame": {"x":19,"y":181,"w":16,"h":16},
+	"frame": {"x":37,"y":145,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1250,7 +1266,7 @@
 },
 "dungeon_tiles-156.png":
 {
-	"frame": {"x":37,"y":163,"w":16,"h":16},
+	"frame": {"x":55,"y":145,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1258,7 +1274,7 @@
 },
 "dungeon_tiles-157.png":
 {
-	"frame": {"x":55,"y":145,"w":16,"h":16},
+	"frame": {"x":73,"y":145,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1266,7 +1282,7 @@
 },
 "dungeon_tiles-158.png":
 {
-	"frame": {"x":73,"y":127,"w":16,"h":16},
+	"frame": {"x":91,"y":145,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1274,7 +1290,7 @@
 },
 "dungeon_tiles-159.png":
 {
-	"frame": {"x":91,"y":109,"w":16,"h":16},
+	"frame": {"x":109,"y":145,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1282,7 +1298,7 @@
 },
 "dungeon_tiles-160.png":
 {
-	"frame": {"x":1,"y":217,"w":16,"h":16},
+	"frame": {"x":19,"y":163,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1290,7 +1306,7 @@
 },
 "dungeon_tiles-161.png":
 {
-	"frame": {"x":19,"y":199,"w":16,"h":16},
+	"frame": {"x":37,"y":163,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1298,7 +1314,7 @@
 },
 "dungeon_tiles-162.png":
 {
-	"frame": {"x":37,"y":181,"w":16,"h":16},
+	"frame": {"x":55,"y":163,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1306,7 +1322,7 @@
 },
 "dungeon_tiles-163.png":
 {
-	"frame": {"x":55,"y":163,"w":16,"h":16},
+	"frame": {"x":73,"y":163,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1314,7 +1330,7 @@
 },
 "dungeon_tiles-164.png":
 {
-	"frame": {"x":73,"y":145,"w":16,"h":16},
+	"frame": {"x":91,"y":163,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1322,7 +1338,7 @@
 },
 "dungeon_tiles-165.png":
 {
-	"frame": {"x":91,"y":127,"w":16,"h":16},
+	"frame": {"x":109,"y":163,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1330,7 +1346,7 @@
 },
 "dungeon_tiles-166.png":
 {
-	"frame": {"x":109,"y":127,"w":16,"h":16},
+	"frame": {"x":1,"y":181,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1338,7 +1354,7 @@
 },
 "dungeon_tiles-167.png":
 {
-	"frame": {"x":1,"y":235,"w":16,"h":16},
+	"frame": {"x":19,"y":181,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1346,7 +1362,7 @@
 },
 "dungeon_tiles-168.png":
 {
-	"frame": {"x":19,"y":217,"w":16,"h":16},
+	"frame": {"x":37,"y":181,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1354,7 +1370,7 @@
 },
 "dungeon_tiles-169.png":
 {
-	"frame": {"x":37,"y":199,"w":16,"h":16},
+	"frame": {"x":55,"y":181,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1362,7 +1378,7 @@
 },
 "dungeon_tiles-170.png":
 {
-	"frame": {"x":73,"y":163,"w":16,"h":16},
+	"frame": {"x":91,"y":181,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1370,7 +1386,7 @@
 },
 "dungeon_tiles-171.png":
 {
-	"frame": {"x":91,"y":145,"w":16,"h":16},
+	"frame": {"x":109,"y":181,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1378,7 +1394,7 @@
 },
 "dungeon_tiles-172.png":
 {
-	"frame": {"x":109,"y":145,"w":16,"h":16},
+	"frame": {"x":1,"y":199,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1386,7 +1402,7 @@
 },
 "dungeon_tiles-173.png":
 {
-	"frame": {"x":1,"y":469,"w":16,"h":9},
+	"frame": {"x":55,"y":443,"w":16,"h":9},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":9},
@@ -1394,7 +1410,7 @@
 },
 "dungeon_tiles-174.png":
 {
-	"frame": {"x":19,"y":469,"w":16,"h":9},
+	"frame": {"x":55,"y":430,"w":16,"h":9},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":9},
@@ -1402,7 +1418,7 @@
 },
 "dungeon_tiles-175.png":
 {
-	"frame": {"x":73,"y":460,"w":16,"h":9},
+	"frame": {"x":91,"y":443,"w":16,"h":9},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":9},
@@ -1410,7 +1426,7 @@
 },
 "dungeon_tiles-176.png":
 {
-	"frame": {"x":1,"y":253,"w":16,"h":16},
+	"frame": {"x":19,"y":199,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1418,7 +1434,7 @@
 },
 "dungeon_tiles-177.png":
 {
-	"frame": {"x":19,"y":235,"w":16,"h":16},
+	"frame": {"x":37,"y":199,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1426,7 +1442,7 @@
 },
 "dungeon_tiles-178.png":
 {
-	"frame": {"x":37,"y":217,"w":16,"h":16},
+	"frame": {"x":55,"y":199,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1434,7 +1450,7 @@
 },
 "dungeon_tiles-179.png":
 {
-	"frame": {"x":73,"y":471,"w":16,"h":9},
+	"frame": {"x":73,"y":445,"w":16,"h":9},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":9},
@@ -1442,7 +1458,7 @@
 },
 "dungeon_tiles-180.png":
 {
-	"frame": {"x":91,"y":442,"w":16,"h":9},
+	"frame": {"x":91,"y":454,"w":16,"h":9},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":9},
@@ -1450,15 +1466,15 @@
 },
 "dungeon_tiles-181.png":
 {
-	"frame": {"x":109,"y":442,"w":16,"h":9},
-	"rotated": false,
+	"frame": {"x":70,"y":456,"w":16,"h":9},
+	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":9},
 	"sourceSize": {"w":16,"h":16}
 },
 "dungeon_tiles-182.png":
 {
-	"frame": {"x":91,"y":453,"w":16,"h":9},
+	"frame": {"x":109,"y":457,"w":16,"h":9},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":9},
@@ -1466,7 +1482,7 @@
 },
 "dungeon_tiles-183.png":
 {
-	"frame": {"x":73,"y":181,"w":16,"h":16},
+	"frame": {"x":91,"y":199,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1474,7 +1490,7 @@
 },
 "dungeon_tiles-184.png":
 {
-	"frame": {"x":91,"y":163,"w":16,"h":16},
+	"frame": {"x":109,"y":199,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1482,7 +1498,7 @@
 },
 "dungeon_tiles-185.png":
 {
-	"frame": {"x":109,"y":163,"w":16,"h":16},
+	"frame": {"x":1,"y":217,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1490,7 +1506,7 @@
 },
 "dungeon_tiles-186.png":
 {
-	"frame": {"x":1,"y":271,"w":16,"h":16},
+	"frame": {"x":19,"y":217,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1498,7 +1514,7 @@
 },
 "dungeon_tiles-187.png":
 {
-	"frame": {"x":19,"y":253,"w":16,"h":16},
+	"frame": {"x":37,"y":217,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1506,7 +1522,7 @@
 },
 "dungeon_tiles-188.png":
 {
-	"frame": {"x":37,"y":235,"w":16,"h":16},
+	"frame": {"x":55,"y":217,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -1514,7 +1530,7 @@
 },
 "dungeon_tiles-189.png":
 {
-	"frame": {"x":91,"y":464,"w":16,"h":9},
+	"frame": {"x":81,"y":465,"w":16,"h":9},
 	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":9},
@@ -1522,19 +1538,35 @@
 },
 "dungeon_tiles-190.png":
 {
-	"frame": {"x":109,"y":453,"w":16,"h":9},
-	"rotated": false,
+	"frame": {"x":92,"y":465,"w":16,"h":9},
+	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":9},
 	"sourceSize": {"w":16,"h":16}
 },
 "dungeon_tiles-191.png":
 {
-	"frame": {"x":102,"y":464,"w":16,"h":9},
-	"rotated": true,
+	"frame": {"x":103,"y":468,"w":16,"h":9},
+	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":9},
 	"sourceSize": {"w":16,"h":16}
+},
+"topLeft.png":
+{
+	"frame": {"x":69,"y":475,"w":5,"h":5},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":5,"h":5},
+	"sourceSize": {"w":5,"h":5}
+},
+"topRight.png":
+{
+	"frame": {"x":81,"y":456,"w":5,"h":5},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":5,"h":5},
+	"sourceSize": {"w":5,"h":5}
 }},
 "animations": {
 	"dungeon_tiles": ["dungeon_tiles-0.png","dungeon_tiles-1.png","dungeon_tiles-2.png","dungeon_tiles-3.png","dungeon_tiles-4.png","dungeon_tiles-5.png","dungeon_tiles-6.png","dungeon_tiles-7.png","dungeon_tiles-8.png","dungeon_tiles-9.png","dungeon_tiles-10.png","dungeon_tiles-11.png","dungeon_tiles-12.png","dungeon_tiles-13.png","dungeon_tiles-14.png","dungeon_tiles-15.png","dungeon_tiles-16.png","dungeon_tiles-17.png","dungeon_tiles-18.png","dungeon_tiles-19.png","dungeon_tiles-20.png","dungeon_tiles-21.png","dungeon_tiles-22.png","dungeon_tiles-23.png","dungeon_tiles-24.png","dungeon_tiles-25.png","dungeon_tiles-26.png","dungeon_tiles-27.png","dungeon_tiles-28.png","dungeon_tiles-29.png","dungeon_tiles-30.png","dungeon_tiles-31.png","dungeon_tiles-32.png","dungeon_tiles-33.png","dungeon_tiles-34.png","dungeon_tiles-35.png","dungeon_tiles-36.png","dungeon_tiles-37.png","dungeon_tiles-38.png","dungeon_tiles-39.png","dungeon_tiles-40.png","dungeon_tiles-41.png","dungeon_tiles-42.png","dungeon_tiles-43.png","dungeon_tiles-44.png","dungeon_tiles-45.png","dungeon_tiles-46.png","dungeon_tiles-47.png","dungeon_tiles-48.png","dungeon_tiles-49.png","dungeon_tiles-50.png","dungeon_tiles-51.png","dungeon_tiles-52.png","dungeon_tiles-53.png","dungeon_tiles-54.png","dungeon_tiles-55.png","dungeon_tiles-56.png","dungeon_tiles-57.png","dungeon_tiles-58.png","dungeon_tiles-59.png","dungeon_tiles-60.png","dungeon_tiles-61.png","dungeon_tiles-62.png","dungeon_tiles-63.png","dungeon_tiles-64.png","dungeon_tiles-65.png","dungeon_tiles-66.png","dungeon_tiles-67.png","dungeon_tiles-68.png","dungeon_tiles-69.png","dungeon_tiles-70.png","dungeon_tiles-71.png","dungeon_tiles-72.png","dungeon_tiles-73.png","dungeon_tiles-74.png","dungeon_tiles-75.png","dungeon_tiles-76.png","dungeon_tiles-77.png","dungeon_tiles-78.png","dungeon_tiles-79.png","dungeon_tiles-80.png","dungeon_tiles-81.png","dungeon_tiles-82.png","dungeon_tiles-83.png","dungeon_tiles-84.png","dungeon_tiles-85.png","dungeon_tiles-86.png","dungeon_tiles-87.png","dungeon_tiles-88.png","dungeon_tiles-89.png","dungeon_tiles-90.png","dungeon_tiles-91.png","dungeon_tiles-92.png","dungeon_tiles-93.png","dungeon_tiles-94.png","dungeon_tiles-95.png","dungeon_tiles-96.png","dungeon_tiles-97.png","dungeon_tiles-98.png","dungeon_tiles-99.png","dungeon_tiles-100.png","dungeon_tiles-101.png","dungeon_tiles-102.png","dungeon_tiles-103.png","dungeon_tiles-104.png","dungeon_tiles-105.png","dungeon_tiles-106.png","dungeon_tiles-107.png","dungeon_tiles-108.png","dungeon_tiles-109.png","dungeon_tiles-110.png","dungeon_tiles-111.png","dungeon_tiles-112.png","dungeon_tiles-113.png","dungeon_tiles-114.png","dungeon_tiles-115.png","dungeon_tiles-116.png","dungeon_tiles-117.png","dungeon_tiles-118.png","dungeon_tiles-119.png","dungeon_tiles-120.png","dungeon_tiles-121.png","dungeon_tiles-122.png","dungeon_tiles-123.png","dungeon_tiles-124.png","dungeon_tiles-125.png","dungeon_tiles-126.png","dungeon_tiles-127.png","dungeon_tiles-128.png","dungeon_tiles-129.png","dungeon_tiles-130.png","dungeon_tiles-131.png","dungeon_tiles-132.png","dungeon_tiles-133.png","dungeon_tiles-134.png","dungeon_tiles-135.png","dungeon_tiles-136.png","dungeon_tiles-137.png","dungeon_tiles-138.png","dungeon_tiles-139.png","dungeon_tiles-140.png","dungeon_tiles-141.png","dungeon_tiles-142.png","dungeon_tiles-143.png","dungeon_tiles-144.png","dungeon_tiles-145.png","dungeon_tiles-146.png","dungeon_tiles-147.png","dungeon_tiles-148.png","dungeon_tiles-149.png","dungeon_tiles-150.png","dungeon_tiles-151.png","dungeon_tiles-152.png","dungeon_tiles-153.png","dungeon_tiles-154.png","dungeon_tiles-155.png","dungeon_tiles-156.png","dungeon_tiles-157.png","dungeon_tiles-158.png","dungeon_tiles-159.png","dungeon_tiles-160.png","dungeon_tiles-161.png","dungeon_tiles-162.png","dungeon_tiles-163.png","dungeon_tiles-164.png","dungeon_tiles-165.png","dungeon_tiles-166.png","dungeon_tiles-167.png","dungeon_tiles-168.png","dungeon_tiles-169.png","dungeon_tiles-170.png","dungeon_tiles-171.png","dungeon_tiles-172.png","dungeon_tiles-173.png","dungeon_tiles-174.png","dungeon_tiles-175.png","dungeon_tiles-176.png","dungeon_tiles-177.png","dungeon_tiles-178.png","dungeon_tiles-179.png","dungeon_tiles-180.png","dungeon_tiles-181.png","dungeon_tiles-182.png","dungeon_tiles-183.png","dungeon_tiles-184.png","dungeon_tiles-185.png","dungeon_tiles-186.png","dungeon_tiles-187.png","dungeon_tiles-188.png","dungeon_tiles-189.png","dungeon_tiles-190.png","dungeon_tiles-191.png"]
@@ -1544,8 +1576,8 @@
 	"version": "1.0",
 	"image": "dungeon_tiles_4.png",
 	"format": "RGBA8888",
-	"size": {"w":126,"h":481},
+	"size": {"w":126,"h":483},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:6b209fdd7531d1867956beedefeecaaf:7550457f4047121d56311ad9183596b8:e5f9ae6f7fca7a024472662506e8e48e$"
+	"smartupdate": "$TexturePacker:SmartUpdate:45afb75b7633476f81a0e20e2985ccf5:04db8b9939a36362ce699c4ea5752a11:e5f9ae6f7fca7a024472662506e8e48e$"
 }
 }
