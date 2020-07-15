@@ -13,7 +13,7 @@ const shortestPathAlgo: InstructionFnType = (
   const newPoint = path[path.length - 2];
 
   // This is very rare but can happen
-  if (!newPoint) {
+  if (path === 'NO_PATH' || !newPoint) {
     return random.pick(availableCommands);
   }
 
