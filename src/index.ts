@@ -4,7 +4,7 @@ import World from './world';
 import Character from './character';
 
 import randomMovement from './algorithms/01-random-movement';
-import shittyFind from './algorithms/02-shitty-find';
+import betterFind from './algorithms/03-better-find';
 
 const app = new PIXI.Application({
   backgroundColor: 0x211f27,
@@ -39,8 +39,8 @@ app.loader.load((loader, resources) => {
 
   const zombie = new Character('zombie');
   world.add(zombie);
-  zombie.setPosition([11, 8]);
-  zombie.setInstructions(shittyFind);
+  zombie.setPosition([10, 8]);
+  zombie.setInstructions(betterFind);
   characters.push(zombie);
 
   // const skeleton = new Character('skeleton');
