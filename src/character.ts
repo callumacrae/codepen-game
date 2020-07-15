@@ -199,7 +199,10 @@ export default class Character {
   }
 
   getRealPosition(): Position | undefined {
-    return this.realPosition;
+    if (!this.realPosition) {
+      return undefined;
+    }
+    return this.realPosition.slice() as Position;
   }
 
   setPosition(position: Position, animationDuration = 0) {

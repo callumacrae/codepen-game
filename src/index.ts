@@ -20,7 +20,7 @@ app.loader.load((loader, resources) => {
   const world = new World();
 
   const worldContainer = world.draw();
-  worldContainer.position.set(80, 98);
+  worldContainer.position.set(80, 92);
   app.stage.addChild(worldContainer);
 
   const randomMovement: InstructionFnType = (
