@@ -3,7 +3,7 @@ import { InstructionFnType, Position } from '../character';
 const pointsEql = (a: Position, b: Position) => a[0] === b[0] && a[1] === b[1];
 
 const shortestPath: InstructionFnType = (
-  { enemyPositions, position },
+  { availableCommands, enemyPositions, position },
   { random, isGround }
 ) => {
   const [playerPosition] = enemyPositions;
@@ -55,6 +55,12 @@ const shortestPath: InstructionFnType = (
 
   // This is the next point on the path
   const newPoint = shortestPath[shortestPath.length - 2];
+
+  // This is very rare but can happen
+  if (!newPoint) {
+    return random.pick(availableCommands);
+  }
+
   if (newPoint[0] !== position[0]) {
     return newPoint[0] < position[0] ? 'left' : 'right';
   }
