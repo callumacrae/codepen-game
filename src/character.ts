@@ -5,7 +5,7 @@ import shortestPath from './utils/shortest-path';
 import World from './world';
 
 export type Position = [number, number];
-type CharacterType = 'robot' | 'zombie' | 'skeleton';
+export type CharacterType = 'robot' | 'zombie' | 'skeleton';
 type CharacterState = 'stationary' | 'down' | 'up' | 'left' | 'right';
 
 export type Command = 'left' | 'right' | 'up' | 'down';

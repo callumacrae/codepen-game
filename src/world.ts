@@ -2,6 +2,7 @@ import * as PIXI from 'pixi.js';
 import * as random from '@callumacrae/utils/random';
 
 import Character from './character';
+import Level from './level';
 
 const tiles = {
   background: {
@@ -37,6 +38,7 @@ export default class World {
   tileHeight: number;
   collisionMap: number[];
   tileMap: [number, Corner[]][];
+  private activeLevel?: Level;
   private container?: PIXI.Container;
   private characters: Character[];
 
@@ -239,5 +241,21 @@ export default class World {
 
   public getCharacters() {
     return this.characters.slice();
+  }
+
+  public update(delta: number, elapsedMS: number) {
+    if (this.activeLevel) {
+      this.activeLevel.update(delta, elapsedMS);
+    }
+  }
+
+  public play(level: Level) {
+    if (this.activeLevel) {
+      throw new Error('Can only play one level at once.');
+    }
+
+    this.activeLevel = level;
+
+    level.begin(this);
   }
 }
