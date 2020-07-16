@@ -239,6 +239,32 @@ export default class World {
     character.setWorld(this);
   }
 
+  public remove(character: Character) {
+    if (!this.container) {
+      throw new Error(
+        "Can't remove character from a world that hasn't been drawn yet."
+      );
+    }
+    if (!this.characters) {
+      throw new Error(
+        "Can't remove character from a world that doesn't have any characters."
+      );
+    }
+    this.container.removeChild(character.getSprite());
+    this.characters.splice(this.characters.indexOf(character), 1);
+  }
+
+  public clear() {
+    if (!this.characters) {
+      // World already clear
+      return;
+    }
+
+    this.characters.forEach((character) => {
+      this.remove(character);
+    });
+  }
+
   public getCharacters() {
     return this.characters.slice();
   }

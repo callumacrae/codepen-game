@@ -248,7 +248,7 @@ export default class Character {
     this.currentPosition = position;
   }
 
-  teleport() {
+  teleport(isAcceptable?: (suggestedPosition: Position) => boolean) {
     if (!this.world) {
       throw new Error(
         "Trying to teleport character which isn't attached to a world"
@@ -263,6 +263,10 @@ export default class Character {
       ];
 
       if (!this.world.isGround(randomPosition[0], randomPosition[1])) {
+        continue;
+      }
+
+      if (isAcceptable && !isAcceptable(randomPosition)) {
         continue;
       }
 

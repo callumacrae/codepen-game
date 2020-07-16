@@ -8,7 +8,7 @@ import shittyFind from './algorithms/02-shitty-find';
 import betterFind from './algorithms/03-better-find';
 import shortestPath from './algorithms/04-shortest-path';
 
-const algorithms: { [algo in Algorithm]: InstructionFnType } = {
+const algorithms: { [algorithm in Algorithm]: InstructionFnType } = {
   'random-movement': randomMovement,
   'shitty-find': shittyFind,
   'better-find': betterFind,
@@ -39,7 +39,10 @@ const levelData: { [levelId in LevelId]: LevelData } = {
       character: 'robot',
       algorithm: 'random-movement',
     },
-    enemies: [{ character: 'zombie', algorithm: 'shortest-path' }],
+    enemies: [
+      { character: 'zombie', algorithm: 'better-find' },
+      { character: 'skeleton', algorithm: 'shortest-path' },
+    ],
     onCollision: 'teleport',
     stages: [{ duration: 'forever', instructionEvery: 500 }],
   },
@@ -66,13 +69,20 @@ export default class Level {
 
     const player = new Character(playerData.character, false);
     world.add(player);
-    player.setPosition([7, 3]);
+    player.teleport();
+    const playerPosition = player.getPosition();
     player.setInstructions(algorithms[playerData.algorithm]);
 
     enemies.forEach((enemyData) => {
       const enemy = new Character(enemyData.character);
       world.add(enemy);
-      enemy.setPosition([10, 8]);
+      // @TODO start in random places far from each other
+      enemy.teleport((suggestedPosition) => {
+        const distX = Math.abs(suggestedPosition[0] - playerPosition[0]);
+        const distY = Math.abs(suggestedPosition[1] - playerPosition[1]);
+
+        return distX + distY > 7;
+      });
       enemy.setInstructions(algorithms[enemyData.algorithm]);
     });
   }
@@ -108,8 +118,8 @@ export default class Level {
       character.update(delta, this.timeSinceLastInstruction)
     );
 
-    const [player, zombie] = characters;
-    if (isColliding(player, zombie)) {
+    const [player, ...enemies] = characters;
+    if (enemies.some((enemy) => isColliding(player, enemy))) {
       if (this.levelData.onCollision === 'teleport') {
         // This is actually horrifically buggy, but I LOVE IT
         player.teleport();
@@ -131,9 +141,6 @@ export default class Level {
       throw new Error("Trying to end level that isn't attached to world.");
     }
 
-    const characters = this.world.getCharacters();
-    characters.forEach((character) => {
-      // this.world.remove(character);
-    });
+    this.world.clear();
   }
 }
