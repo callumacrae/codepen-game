@@ -39,8 +39,10 @@ export default class World {
   collisionMap: number[];
   tileMap: [number, Corner[]][];
   private activeLevel?: Level;
+  private outerContainer?: PIXI.Container;
   private container?: PIXI.Container;
   private characters: Character[];
+  private overlay?: { text: PIXI.BitmapText; container: PIXI.Container };
 
   constructor(width = 20, height = 13) {
     this.width = width;
@@ -224,7 +226,9 @@ export default class World {
     }
 
     this.container = container;
-    return container;
+    this.outerContainer = new PIXI.Container();
+    this.outerContainer.addChild(this.container);
+    return this.outerContainer;
   }
 
   public add(character: Character) {
@@ -283,5 +287,74 @@ export default class World {
     this.activeLevel = level;
 
     level.begin(this);
+  }
+
+  public setOverlay(string: string) {
+    if (!this.container || !this.outerContainer) {
+      throw new Error(
+        "Can't show overlay on a world that hasn't been drawn yet."
+      );
+    }
+
+    if (this.overlay) {
+      this.overlay.text.text = string;
+      return;
+    }
+
+    const { outerContainer, container } = this;
+
+    const overlayContainer = new PIXI.Container();
+
+    const widthPx = this.width * this.tileWidth;
+    const heightPx = this.height * this.tileHeight;
+
+    const background = new PIXI.Graphics();
+    background.beginFill(0x211f27);
+    background.drawRect(-32, -32, widthPx + 64, heightPx + 64);
+    background.endFill();
+    background.alpha = 0.3;
+    overlayContainer.addChild(background);
+
+    const text = new PIXI.BitmapText(string, {
+      fontName: 'GoodNeighbors',
+      fontSize: 35,
+    });
+    text.anchor = 0.5;
+    text.position.set(widthPx / 2, heightPx / 2);
+
+    overlayContainer.addChild(text);
+
+    container.filters = [new PIXI.filters.BlurFilter(3)];
+
+    outerContainer.addChild(overlayContainer);
+
+    this.overlay = { text, container: overlayContainer };
+  }
+
+  public hideOverlay() {
+    if (!this.container || !this.outerContainer) {
+      throw new Error(
+        "Can't show overlay on a world that hasn't been drawn yet."
+      );
+    }
+
+    if (!this.overlay) {
+      throw new Error("Can't hide overlay that doesn't exist.");
+    }
+
+    const overlayContainer = this.overlay.container;
+
+    this.outerContainer.removeChild(overlayContainer);
+    overlayContainer.destroy();
+    this.container.filters = [];
+    delete this.overlay;
+  }
+
+  public showHelp() {
+    if (!this.activeLevel) {
+      throw new Error('No level to show help for');
+    }
+
+    this.setOverlay(this.activeLevel.getHelpText());
   }
 }

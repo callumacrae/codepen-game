@@ -9,14 +9,18 @@ import betterFind from './algorithms/03-better-find';
 import shortestPath from './algorithms/04-shortest-path';
 
 const algorithms: { [algorithm in Algorithm]: InstructionFnType } = {
+  player: (data, libraries) => {
+    return window.run.instruction(data, libraries);
+  },
   'random-movement': randomMovement,
   'shitty-find': shittyFind,
   'better-find': betterFind,
   'shortest-path': shortestPath,
 };
 
-type LevelId = 'intro';
+type LevelId = 'intro' | 'one';
 type Algorithm =
+  | 'player'
   | 'random-movement'
   | 'shitty-find'
   | 'better-find'
@@ -31,13 +35,14 @@ interface LevelData {
   enemies: CharacterData[];
   onCollision: 'teleport' | 'die';
   stages: { duration: number | 'forever'; instructionEvery: number }[];
+  helpText: string;
 }
 
 const levelData: { [levelId in LevelId]: LevelData } = {
   intro: {
     player: {
       character: 'robot',
-      algorithm: 'random-movement',
+      algorithm: 'player',
     },
     enemies: [
       { character: 'zombie', algorithm: 'better-find' },
@@ -45,6 +50,30 @@ const levelData: { [levelId in LevelId]: LevelData } = {
     ],
     onCollision: 'teleport',
     stages: [{ duration: 'forever', instructionEvery: 500 }],
+    helpText: '',
+  },
+
+  one: {
+    player: {
+      character: 'robot',
+      algorithm: 'player',
+    },
+    enemies: [{ character: 'zombie', algorithm: 'random-movement' }],
+    onCollision: 'die',
+    stages: [
+      { duration: 5e3, instructionEvery: 1000 },
+      { duration: 5e3, instructionEvery: 500 },
+      { duration: 10e3, instructionEvery: 100 },
+    ],
+    helpText: [
+      'in this level, there is a single enemy',
+      'that moves around randomly.',
+      '',
+      'you can probably avoid it by chance, but',
+      'i would recommend exploring the functions',
+      'available in the instruction() function',
+      'to actually run away from it.',
+    ].join('\n'),
   },
 };
 
@@ -58,7 +87,8 @@ export default class Level {
   constructor(levelId: LevelId) {
     this.levelData = levelData[levelId];
     this.timeSinceStageStart = 0;
-    this.timeSinceLastInstruction = 0;
+    // Start immediately
+    this.timeSinceLastInstruction = 1e6;
     this.stage = 0;
   }
 
@@ -76,7 +106,6 @@ export default class Level {
     enemies.forEach((enemyData) => {
       const enemy = new Character(enemyData.character);
       world.add(enemy);
-      // @TODO start in random places far from each other
       enemy.teleport((suggestedPosition) => {
         const distX = Math.abs(suggestedPosition[0] - playerPosition[0]);
         const distY = Math.abs(suggestedPosition[1] - playerPosition[1]);
@@ -120,11 +149,12 @@ export default class Level {
 
     const [player, ...enemies] = characters;
     if (enemies.some((enemy) => isColliding(player, enemy))) {
-      if (this.levelData.onCollision === 'teleport') {
+      const { onCollision } = this.levelData;
+      if (onCollision === 'teleport') {
         // This is actually horrifically buggy, but I LOVE IT
         player.teleport();
       } else {
-        throw new Error('onCollision type not yet supported');
+        throw new Error(`onCollision type "${onCollision}" not yet supported.`);
       }
     }
 
@@ -142,5 +172,9 @@ export default class Level {
     }
 
     this.world.clear();
+  }
+
+  getHelpText() {
+    return this.levelData.helpText;
   }
 }

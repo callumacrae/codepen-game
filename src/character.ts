@@ -9,6 +9,7 @@ export type CharacterType = 'robot' | 'zombie' | 'skeleton';
 type CharacterState = 'stationary' | 'down' | 'up' | 'left' | 'right';
 
 export type Command = 'left' | 'right' | 'up' | 'down';
+
 export interface InstructionData {
   availableCommands: Command[];
   position: Position;
@@ -20,6 +21,7 @@ export interface InstructionData {
     collisionMap: number[];
   };
 }
+
 export type InstructionFnType = (
   data: InstructionData,
   libraries: { random: any; isGround: (x: number, y: number) => boolean }
@@ -343,12 +345,22 @@ export default class Character {
       .filter((character) => character.isHostile() !== this.hostile)
       .map((character) => character.getPosition());
 
-    // Pass copies of data in so that it can't be tampered with
     const data: InstructionData = {
+      // This is a list of commands that you can return, e.g. "down".
+      // Make sure that what you return is in this list, or the game will end.
       availableCommands: availableCommands.slice(),
+
+      // This is the position of the current character as an array
       position: position.slice() as Position,
-      previousCommands: this.previousCommands.slice(),
+
+      // This is an array of positions of the enemies you need to run from.
       enemyPositions,
+
+      // This is an array of the commands you've ran previously
+      previousCommands: this.previousCommands.slice(),
+
+      // This contains details about the world around you, such as how big it
+      // is and which bits you can run to.
       worldData: {
         width: this.world.width,
         height: this.world.height,
@@ -357,7 +369,11 @@ export default class Character {
     };
 
     const libs = {
+      // https://github.com/callumacrae/sketchbook/blob/master/src/utils/random.ts
       random,
+
+      // Returns whether the given x and y coordinates are ground or not:
+      // much easier than figuring it out from the collisionMap.
       isGround: (x: number, y: number) =>
         // Typescript is being a dick, this.world is always defined
         this.world ? this.world.isGround(x, y) : false,
