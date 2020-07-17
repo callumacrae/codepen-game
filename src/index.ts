@@ -95,7 +95,7 @@ app.loader.load(() => {
 
         // Reloading is fine - the gameplay kind of relies on it anyway
         app.view.addEventListener('click', () => {
-          window.location.reload();
+          history.go(0);
         });
       });
       world.play(level);
@@ -118,9 +118,9 @@ app.loader.load(() => {
       ].join('\n')
     );
 
-    // @TODO
     app.view.addEventListener('click', () => {
-      throw new Error('this has not been implemented yet');
+      window.location.href =
+        'https://codepen.io/callumacrae/pen/bf04524ba5f094774e5de81fb2c8f229?editors=0010';
     });
   }
 
