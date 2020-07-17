@@ -6,7 +6,12 @@ import Level from './level';
 import { LevelId } from './data/levels';
 import { InstructionFnType } from './character';
 
-import { introText, deathText, winText } from './data/overlay-text';
+import {
+  introText,
+  deathText,
+  winText,
+  loadErrorText,
+} from './data/overlay-text';
 
 const app = new PIXI.Application({
   backgroundColor: 0x211f27,
@@ -112,16 +117,7 @@ app.loader.load(() => {
   } else {
     const intro = new Level('intro');
     world.play(intro);
-    world.setOverlay(
-      [
-        'something has gone wrong.',
-        '',
-        'the setup function was not found: this',
-        "probably means that you're not in",
-        'codepen. click on the screen to be taken',
-        'there.',
-      ].join('\n')
-    );
+    world.setOverlay(loadErrorText);
 
     app.view.addEventListener('click', () => {
       window.location.href =

@@ -38,6 +38,9 @@ export const deathText = [
   '',
   'change your code to try again.',
   '',
+  'if you need a hint, uncomment the',
+  'showHelp() call in the setup function.',
+  '',
   'you could also just rerun the game',
   'until you win at random, but that',
   "won't work at later levels.",
@@ -50,4 +53,13 @@ export const winText = [
   '',
   'click here or edit the code to proceed',
   'to the next level.',
+].join('\n');
+
+export const loadErrorText = [
+  'something has gone wrong.',
+  '',
+  'the setup function was not found: this',
+  "probably means that you're not in",
+  'codepen. click on the screen to be taken',
+  'there.',
 ].join('\n');
