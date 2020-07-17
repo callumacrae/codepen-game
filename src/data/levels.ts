@@ -17,7 +17,7 @@ const levelData: { [levelId in LevelId]: LevelData } = {
   intro: {
     player: {
       character: 'robot',
-      algorithm: 'player',
+      algorithm: 'random-movement',
     },
     enemies: [
       { character: 'zombie', algorithm: 'better-find' },

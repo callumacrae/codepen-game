@@ -48,53 +48,71 @@ app.loader.load(() => {
 
   if (window.run && window.run.setup) {
     window.run.setup(gameSetupObj);
-  }
 
-  if (!isPlaying || isResetting) {
-    const intro = new Level('intro');
-    world.play(intro);
+    if (!isPlaying || isResetting) {
+      const intro = new Level('intro');
+      world.play(intro);
 
-    if (isResetting) {
-      Cookies.remove('current-level');
-      world.setOverlay(
-        'game reset.\n\nre-comment the reset() call to proceed.'
-      );
+      if (isResetting) {
+        Cookies.remove('current-level');
+        world.setOverlay(
+          'game reset.\n\nre-comment the reset() call to proceed.'
+        );
+      } else {
+        // Show intro text
+        let currentIndex = 0;
+        world.setOverlay(introText[0]);
+
+        app.view.addEventListener('click', () => {
+          if (currentIndex >= introText.length - 1) {
+            return;
+          }
+          currentIndex++;
+          world.setOverlay(introText[currentIndex]);
+        });
+      }
     } else {
-      // Show intro text
-      let currentIndex = 0;
-      world.setOverlay(introText[0]);
-
-      app.view.addEventListener('click', () => {
-        if (currentIndex >= introText.length - 1) {
-          return;
-        }
-        currentIndex++;
-        world.setOverlay(introText[currentIndex]);
+      let levelId = Cookies.get('current-level');
+      if (!levelId || !Level.isLevel(levelId)) {
+        levelId = 'one';
+      }
+      const level = new Level(levelId as LevelId);
+      level.on('death', () => {
+        world.setOverlay(deathText);
       });
+      level.on('win', () => {
+        world.setOverlay(winText);
+        Cookies.set('current-level', level.getNextLevel());
+
+        // Reloading is fine - the gameplay kind of relies on it anyway
+        app.view.addEventListener('click', () => {
+          window.location.reload();
+        });
+      });
+      world.play(level);
+
+      if (showHelp) {
+        world.showHelp();
+      }
     }
   } else {
-    let levelId = Cookies.get('current-level');
-    if (!levelId || !Level.isLevel(levelId)) {
-      levelId = 'one';
-    }
-    const level = new Level(levelId as LevelId);
-    level.on('death', () => {
-      world.setOverlay(deathText);
-    });
-    level.on('win', () => {
-      world.setOverlay(winText);
-      Cookies.set('current-level', level.getNextLevel());
+    const intro = new Level('intro');
+    world.play(intro);
+    world.setOverlay(
+      [
+        'something has gone wrong.',
+        '',
+        'the setup function was not found: this',
+        "probably means that you're not in",
+        'codepen. click on the screen to be taken',
+        'there.',
+      ].join('\n')
+    );
 
-      // Reloading is fine - the gameplay kind of relies on it anyway
-      app.view.addEventListener('click', () => {
-        window.location.reload();
-      });
+    // @TODO
+    app.view.addEventListener('click', () => {
+      throw new Error('this has not been implemented yet');
     });
-    world.play(level);
-
-    if (showHelp) {
-      world.showHelp();
-    }
   }
 
   app.ticker.add((delta) => {
