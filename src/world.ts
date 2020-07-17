@@ -260,9 +260,25 @@ export default class World {
       throw new Error('Can only play one level at once.');
     }
 
+    if (!this.container) {
+      throw new Error("Can't play level before game is drawn.");
+    }
+
     this.activeLevel = level;
 
     level.begin(this);
+
+    const widthPx = this.width * this.tileWidth;
+    const heightPx = this.height * this.tileHeight;
+
+    const levelText = new PIXI.BitmapText(`level ${level.getName()}`, {
+      fontName: 'GoodNeighbors',
+      fontSize: 30,
+    });
+    levelText.anchor = 1;
+    levelText.position.set(widthPx - 10, heightPx + 30);
+
+    this.container.addChild(levelText);
   }
 
   public setOverlay(string: string) {

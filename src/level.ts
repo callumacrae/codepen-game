@@ -47,6 +47,7 @@ export interface LevelData {
 
 export default class Level extends EventEmitter {
   private status: LevelStatus;
+  private levelName: LevelId;
   private levelData: LevelData;
   private timeSinceStageStart: number;
   private timeSinceLastInstruction: number;
@@ -57,6 +58,7 @@ export default class Level extends EventEmitter {
     super();
 
     this.status = 'waiting';
+    this.levelName = levelId;
     this.levelData = levelData[levelId];
     this.timeSinceStageStart = 0;
     // Start immediately
@@ -162,6 +164,10 @@ export default class Level extends EventEmitter {
 
   getHelpText() {
     return this.levelData.helpText;
+  }
+
+  getName() {
+    return this.levelName;
   }
 
   getNextLevel() {
