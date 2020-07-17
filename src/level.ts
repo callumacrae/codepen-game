@@ -100,8 +100,10 @@ export default class Level extends EventEmitter {
 
     const characters = this.world.getCharacters();
 
-    // @TODO is this right?!
-    this.timeSinceStageStart += elapsedMS;
+    // You can't win if the help text is showing
+    if (!this.world.isShowingOverlay()) {
+      this.timeSinceStageStart += elapsedMS;
+    }
     this.timeSinceLastInstruction += elapsedMS;
 
     let currentStage = this.levelData.stages[this.stage];
@@ -130,7 +132,7 @@ export default class Level extends EventEmitter {
     const [player, ...enemies] = characters;
     if (enemies.some((enemy) => isColliding(player, enemy))) {
       const { onCollision } = this.levelData;
-      if (onCollision === 'teleport') {
+      if (onCollision === 'teleport' || this.world.isShowingOverlay()) {
         // This is actually horrifically buggy, but I LOVE IT
         player.teleport();
       } else if (onCollision === 'die') {

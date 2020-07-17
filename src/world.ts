@@ -326,6 +326,10 @@ export default class World {
     delete this.overlay;
   }
 
+  public isShowingOverlay() {
+    return !!this.overlay;
+  }
+
   public showHelp() {
     if (!this.activeLevel) {
       throw new Error('No level to show help for');
