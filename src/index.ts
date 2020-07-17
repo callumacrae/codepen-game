@@ -2,10 +2,11 @@ import * as PIXI from 'pixi.js';
 import Cookies from 'js-cookie';
 
 import World from './world';
-import Level, { LevelId } from './level';
+import Level from './level';
+import { LevelId } from './data/levels';
 import { InstructionFnType } from './character';
 
-import introText from './utils/intro-text';
+import { introText, deathText, winText } from './data/overlay-text';
 
 const app = new PIXI.Application({
   backgroundColor: 0x211f27,
@@ -62,29 +63,10 @@ app.loader.load(() => {
         }
         const level = new Level(levelId as LevelId);
         level.on('death', () => {
-          world.setOverlay(
-            [
-              'you died! :(',
-              '',
-              'change your code to try again.',
-              '',
-              'you could also just rerun the game',
-              'until you win at random, but that',
-              "won't work at later levels.",
-            ].join('\n')
-          );
+          world.setOverlay(deathText);
         });
         level.on('win', () => {
-          world.setOverlay(
-            [
-              'you completed this level!',
-              '',
-              'nice. well done.',
-              '',
-              'click here or edit the code to proceed',
-              'to the next level.',
-            ].join('\n')
-          );
+          world.setOverlay(winText);
           Cookies.set('current-level', level.getNextLevel());
 
           app.view.addEventListener('click', () => {

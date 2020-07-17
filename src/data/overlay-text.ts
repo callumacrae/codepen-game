@@ -1,4 +1,4 @@
-const introText = [
+export const introText = [
   [
     'hello!',
     '',
@@ -33,4 +33,21 @@ const introText = [
   ].join('\n'),
 ];
 
-export default introText;
+export const deathText = [
+  'you died! :(',
+  '',
+  'change your code to try again.',
+  '',
+  'you could also just rerun the game',
+  'until you win at random, but that',
+  "won't work at later levels.",
+].join('\n');
+
+export const winText = [
+  'you completed this level!',
+  '',
+  'nice. well done.',
+  '',
+  'click here or edit the code to proceed',
+  'to the next level.',
+].join('\n');
