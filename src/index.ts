@@ -81,24 +81,29 @@ app.loader.load(() => {
         });
       }
     } else {
-      let levelId = Cookies.get('current-level');
-      if (!levelId || !Level.isLevel(levelId)) {
-        levelId = 'one';
-      }
-      const level = new Level(levelId as LevelId);
-      level.on('death', () => {
-        world.setOverlay(deathText);
-      });
-      level.on('win', () => {
-        world.setOverlay(winText);
-        Cookies.set('current-level', level.getNextLevel());
-
-        // Reloading is fine - the gameplay kind of relies on it anyway
-        app.view.addEventListener('click', () => {
-          history.go(0);
+      function startGame() {
+        let levelId = Cookies.get('current-level');
+        if (!levelId || !Level.isLevel(levelId)) {
+          levelId = 'one';
+        }
+        const level = new Level(levelId as LevelId);
+        level.on('death', () => {
+          world.setOverlay(deathText);
         });
-      });
-      world.play(level);
+        level.on('win', () => {
+          world.setOverlay(winText);
+          Cookies.set('current-level', level.getNextLevel());
+
+          app.view.addEventListener('click', () => {
+            world.endLevel();
+            world.hideOverlay();
+            startGame();
+          });
+        });
+        world.play(level);
+      }
+
+      startGame();
 
       if (showHelp) {
         world.showHelp();

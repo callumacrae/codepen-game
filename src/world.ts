@@ -19,6 +19,7 @@ export default class World {
   private container?: PIXI.Container;
   private characters: Character[];
   private overlay?: { text: PIXI.BitmapText; container: PIXI.Container };
+  private levelText?: PIXI.Container;
 
   constructor(width = 20, height = 13) {
     this.width = width;
@@ -240,9 +241,16 @@ export default class World {
       return;
     }
 
-    this.characters.forEach((character) => {
+    this.characters.slice().forEach((character) => {
       this.remove(character);
     });
+
+    if (this.levelText && this.container) {
+      this.container.removeChild(this.levelText);
+      delete this.levelText;
+    }
+
+    this.hideOverlay();
   }
 
   public getCharacters() {
@@ -279,9 +287,19 @@ export default class World {
       });
       levelText.anchor = 1;
       levelText.position.set(widthPx - 10, heightPx + 30);
+      this.levelText = levelText;
 
       this.container.addChild(levelText);
     }
+  }
+
+  public endLevel() {
+    if (!this.activeLevel) {
+      throw new Error("Can't end level when no level in progress.");
+    }
+
+    this.activeLevel.end();
+    delete this.activeLevel;
   }
 
   public setOverlay(string: string) {
@@ -334,7 +352,7 @@ export default class World {
     }
 
     if (!this.overlay) {
-      throw new Error("Can't hide overlay that doesn't exist.");
+      return;
     }
 
     const overlayContainer = this.overlay.container;
