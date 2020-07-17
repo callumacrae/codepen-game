@@ -1,3 +1,5 @@
+import EventEmitter from '@callumacrae/utils/events';
+
 import Character, { CharacterType, InstructionFnType } from './character';
 import World from './world';
 
@@ -18,7 +20,21 @@ const algorithms: { [algorithm in Algorithm]: InstructionFnType } = {
   'shortest-path': shortestPath,
 };
 
-type LevelId = 'intro' | 'one';
+type LevelStatus = 'waiting' | 'playing' | 'dead' | 'completed';
+
+export type LevelId =
+  | 'intro'
+  | 'one'
+  | 'two'
+  | 'three'
+  | 'four'
+  | 'five'
+  | 'six'
+  | 'seven'
+  | 'eight'
+  | 'nine'
+  | 'ten';
+
 type Algorithm =
   | 'player'
   | 'random-movement'
@@ -36,6 +52,7 @@ interface LevelData {
   onCollision: 'teleport' | 'die';
   stages: { duration: number | 'forever'; instructionEvery: number }[];
   helpText: string;
+  nextLevel: LevelId;
 }
 
 const levelData: { [levelId in LevelId]: LevelData } = {
@@ -51,6 +68,7 @@ const levelData: { [levelId in LevelId]: LevelData } = {
     onCollision: 'teleport',
     stages: [{ duration: 'forever', instructionEvery: 500 }],
     helpText: '',
+    nextLevel: 'one',
   },
 
   one: {
@@ -74,10 +92,221 @@ const levelData: { [levelId in LevelId]: LevelData } = {
       'available in the instruction() function',
       'to actually run away from it.',
     ].join('\n'),
+    nextLevel: 'two',
+  },
+
+  two: {
+    player: {
+      character: 'robot',
+      algorithm: 'player',
+    },
+    enemies: [{ character: 'zombie', algorithm: 'shitty-find' }],
+    onCollision: 'die',
+    stages: [
+      { duration: 10e3, instructionEvery: 500 },
+      { duration: 10e3, instructionEvery: 100 },
+    ],
+    helpText: [
+      'in this level, the enemy is using a',
+      'find algorithm - but it is a bit of',
+      'a rubbish one.',
+      '',
+      'the algorithm walks in your general',
+      'direction, but has no logic for going',
+      'around obstacles.',
+    ].join('\n'),
+    nextLevel: 'three',
+  },
+
+  three: {
+    player: {
+      character: 'robot',
+      algorithm: 'player',
+    },
+    enemies: [{ character: 'zombie', algorithm: 'better-find' }],
+    onCollision: 'die',
+    stages: [
+      { duration: 10e3, instructionEvery: 500 },
+      { duration: 10e3, instructionEvery: 100 },
+    ],
+    helpText: [
+      'in this level, the enemy is using a',
+      'slightly better find algorithm.',
+      '',
+      'it again walks in your general direction,',
+      'but is a bit better at dealing with',
+      'obstacles.',
+    ].join('\n'),
+    nextLevel: 'four',
+  },
+
+  four: {
+    player: {
+      character: 'robot',
+      algorithm: 'player',
+    },
+    enemies: [{ character: 'zombie', algorithm: 'shortest-path' }],
+    onCollision: 'die',
+    stages: [
+      { duration: 10e3, instructionEvery: 500 },
+      { duration: 10e3, instructionEvery: 100 },
+    ],
+    helpText: [
+      'uh oh, the enemy has got smarter!',
+      '',
+      "it's now using breadth-first search",
+      'to find the shortest path between',
+      "you and it - you can't rely on luck",
+      'to beat this one!',
+    ].join('\n'),
+    nextLevel: 'five',
+  },
+
+  five: {
+    player: {
+      character: 'robot',
+      algorithm: 'player',
+    },
+    enemies: [
+      { character: 'zombie', algorithm: 'shortest-path' },
+      { character: 'skeleton', algorithm: 'random-movement' },
+    ],
+    onCollision: 'die',
+    stages: [
+      { duration: 10e3, instructionEvery: 500 },
+      { duration: 10e3, instructionEvery: 100 },
+    ],
+    helpText: [
+      'there are now two enemies.',
+      '',
+      'the zombie is using the same shortest',
+      'path algorithm as last time, while the',
+      'new enemy, the skeleton, is moving',
+      'randomly.',
+    ].join('\n'),
+    nextLevel: 'six',
+  },
+
+  six: {
+    player: {
+      character: 'robot',
+      algorithm: 'player',
+    },
+    enemies: [
+      { character: 'zombie', algorithm: 'shortest-path' },
+      { character: 'skeleton', algorithm: 'shitty-find' },
+    ],
+    onCollision: 'die',
+    stages: [
+      { duration: 10e3, instructionEvery: 500 },
+      { duration: 10e3, instructionEvery: 100 },
+    ],
+    helpText: [
+      'the skeleton is getting smarter, sort of.',
+      '',
+      'the zombie is using the shortest path',
+      'algorithm again, and the skeleton is using',
+      'the rubbish find algorithm you saw before.',
+    ].join('\n'),
+    nextLevel: 'seven',
+  },
+
+  seven: {
+    player: {
+      character: 'robot',
+      algorithm: 'player',
+    },
+    enemies: [
+      { character: 'zombie', algorithm: 'shortest-path' },
+      { character: 'skeleton', algorithm: 'better-find' },
+    ],
+    onCollision: 'die',
+    stages: [
+      { duration: 10e3, instructionEvery: 500 },
+      { duration: 10e3, instructionEvery: 100 },
+    ],
+    helpText: [
+      'the zombie is using the shortest path',
+      'algorithm again.',
+      '',
+      'the skeleton is using the slightly',
+      "better find algorithm (it's improving",
+      'in the same way the zombie did before).',
+    ].join('\n'),
+    nextLevel: 'eight',
+  },
+
+  eight: {
+    player: {
+      character: 'robot',
+      algorithm: 'player',
+    },
+    enemies: [
+      { character: 'zombie', algorithm: 'shortest-path' },
+      { character: 'skeleton', algorithm: 'shortest-path' },
+    ],
+    onCollision: 'die',
+    stages: [
+      { duration: 10e3, instructionEvery: 500 },
+      { duration: 10e3, instructionEvery: 100 },
+    ],
+    helpText: [
+      'both enemies are now using the',
+      'shortest path algorithm.',
+      '',
+      'good luck. you will need it.',
+    ].join('\n'),
+    nextLevel: 'nine',
+  },
+
+  nine: {
+    player: {
+      character: 'robot',
+      algorithm: 'player',
+    },
+    enemies: [
+      { character: 'zombie', algorithm: 'shortest-path' },
+      { character: 'skeleton', algorithm: 'shortest-path' },
+      { character: 'zombie', algorithm: 'shortest-path' },
+    ],
+    onCollision: 'die',
+    stages: [
+      { duration: 10e3, instructionEvery: 500 },
+      { duration: 10e3, instructionEvery: 100 },
+    ],
+    helpText: [
+      'there are now three enemies, all',
+      'using the shortest path algorithm.',
+      '',
+      "i'm not sure you'll beat this.",
+    ].join('\n'),
+    nextLevel: 'ten',
+  },
+
+  ten: {
+    player: {
+      character: 'robot',
+      algorithm: 'player',
+    },
+    enemies: [
+      { character: 'zombie', algorithm: 'shortest-path' },
+      { character: 'skeleton', algorithm: 'shortest-path' },
+      { character: 'zombie', algorithm: 'shortest-path' },
+      { character: 'skeleton', algorithm: 'shortest-path' },
+      { character: 'zombie', algorithm: 'shortest-path' },
+    ],
+    onCollision: 'die',
+    stages: [
+      { duration: 10e3, instructionEvery: 500 },
+      { duration: 10e3, instructionEvery: 100 },
+    ],
+    helpText: 'lol',
+    nextLevel: 'ten', // like anyone is gonna complete this anyway
   },
 };
 
-export default class Level {
+export default class Level extends EventEmitter {
+  private status: LevelStatus;
   private levelData: LevelData;
   private timeSinceStageStart: number;
   private timeSinceLastInstruction: number;
@@ -85,6 +314,9 @@ export default class Level {
   private world?: World;
 
   constructor(levelId: LevelId) {
+    super();
+
+    this.status = 'waiting';
     this.levelData = levelData[levelId];
     this.timeSinceStageStart = 0;
     // Start immediately
@@ -93,6 +325,7 @@ export default class Level {
   }
 
   begin(world: World) {
+    this.status = 'playing';
     this.world = world;
 
     const { player: playerData, enemies } = this.levelData;
@@ -121,8 +354,13 @@ export default class Level {
       throw new Error("Trying to update level that isn't attached to world.");
     }
 
+    if (this.status !== 'playing') {
+      return;
+    }
+
     const characters = this.world.getCharacters();
 
+    // @TODO is this right?!
     this.timeSinceStageStart += elapsedMS;
     this.timeSinceLastInstruction += elapsedMS;
 
@@ -134,7 +372,9 @@ export default class Level {
       this.stage++;
 
       if (this.stage >= this.levelData.stages.length) {
-        throw new Error('TODO');
+        this.status = 'completed';
+        this.emit('win');
+        return;
       }
 
       currentStage = this.levelData.stages[this.stage];
@@ -153,6 +393,10 @@ export default class Level {
       if (onCollision === 'teleport') {
         // This is actually horrifically buggy, but I LOVE IT
         player.teleport();
+      } else if (onCollision === 'die') {
+        this.status = 'dead';
+        this.emit('death');
+        return;
       } else {
         throw new Error(`onCollision type "${onCollision}" not yet supported.`);
       }
@@ -176,5 +420,13 @@ export default class Level {
 
   getHelpText() {
     return this.levelData.helpText;
+  }
+
+  getNextLevel() {
+    return this.levelData.nextLevel;
+  }
+
+  static isLevel(id: string) {
+    return id in levelData;
   }
 }

@@ -1,7 +1,8 @@
 import * as PIXI from 'pixi.js';
+import Cookies from 'js-cookie';
 
 import World from './world';
-import Level from './level';
+import Level, { LevelId } from './level';
 import { InstructionFnType } from './character';
 
 import introText from './utils/intro-text';
@@ -16,6 +17,7 @@ document.body.appendChild(app.view);
 interface GameSetupObj {
   play: () => void;
   showHelp: () => void;
+  reset: () => void;
 }
 
 app.loader.add('dungeonTiles', 'assets/dungeon_tiles_4.json');
@@ -42,15 +44,64 @@ app.loader.load(() => {
   }
 
   let isPlaying = false;
+  let isResetting = false;
   let showHelp = false;
   const gameSetupObj: GameSetupObj = {
     play() {
       isPlaying = true;
-      const level = new Level('one');
-      world.play(level);
+
+      // The setTimeout is so that play() and reset() can be called in any order
+      setTimeout(() => {
+        if (isResetting) {
+          return;
+        }
+
+        let levelId = Cookies.get('current-level');
+        if (!levelId || !Level.isLevel(levelId)) {
+          levelId = 'one';
+        }
+        const level = new Level(levelId as LevelId);
+        level.on('death', () => {
+          world.setOverlay(
+            [
+              'you died! :(',
+              '',
+              'change your code to try again.',
+              '',
+              'you could also just rerun the game',
+              'until you win at random, but that',
+              "won't work at later levels.",
+            ].join('\n')
+          );
+        });
+        level.on('win', () => {
+          world.setOverlay(
+            [
+              'you completed this level!',
+              '',
+              'nice. well done.',
+              '',
+              'click here or edit the code to proceed',
+              'to the next level.',
+            ].join('\n')
+          );
+          Cookies.set('current-level', level.getNextLevel());
+
+          app.view.addEventListener('click', () => {
+            window.location.reload();
+          });
+        });
+        world.play(level);
+      });
     },
     showHelp() {
       showHelp = true;
+    },
+    reset() {
+      isResetting = true;
+
+      Cookies.remove('current-level');
+      world.setOverlay('game reset.\n\nuncomment the reset() call to proceed.');
     },
   };
 
@@ -58,10 +109,13 @@ app.loader.load(() => {
     window.run.setup(gameSetupObj);
   }
 
-  if (!isPlaying) {
+  if (!isPlaying || isResetting) {
     const intro = new Level('intro');
     world.play(intro);
-    showIntro();
+
+    if (!isResetting) {
+      showIntro();
+    }
   } else if (showHelp) {
     world.showHelp();
   }
@@ -85,12 +139,10 @@ window.run = {
    * The setup function is ran once per page load and controls
    * how the game should run.
    */
-  setup(
-    game
-  ) {
+  setup(game) {
     // prettier-ignore
     /* Uncomment this to begin! */
-    // game.play()
+    game.play()
 
     /* For help, uncomment this next line. */
     // game.showHelp();
@@ -98,6 +150,9 @@ window.run = {
     /* To set a fixed seed and make the randomness less random,
        uncomment out the following line. */
     // game.setSeed('test')
+
+    /* Uncomment to reset the game */
+    // game.reset();
   },
   /**
    * The instruction function is called repeatedly, once per
