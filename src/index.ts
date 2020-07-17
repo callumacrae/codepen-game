@@ -21,9 +21,18 @@ interface GameSetupObj {
   reset: () => void;
 }
 
-app.loader.add('dungeonTiles', 'assets/dungeon_tiles_4.json');
-app.loader.add('characters', 'assets/characters.json');
-app.loader.add('goodNeighborsFont', 'assets/good_neighbors_starling.xml');
+app.loader.add(
+  'dungeonTiles',
+  'https://codepen-game.vercel.app/assets/dungeon_tiles_4.json'
+);
+app.loader.add(
+  'characters',
+  'https://codepen-game.vercel.app/assets/characters.json'
+);
+app.loader.add(
+  'goodNeighborsFont',
+  'https://codepen-game.vercel.app/assets/good_neighbors_starling.xml'
+);
 app.loader.load(() => {
   const world = new World();
 
