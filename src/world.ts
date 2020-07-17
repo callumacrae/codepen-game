@@ -271,14 +271,17 @@ export default class World {
     const widthPx = this.width * this.tileWidth;
     const heightPx = this.height * this.tileHeight;
 
-    const levelText = new PIXI.BitmapText(`level ${level.getName()}`, {
-      fontName: 'GoodNeighbors',
-      fontSize: 30,
-    });
-    levelText.anchor = 1;
-    levelText.position.set(widthPx - 10, heightPx + 30);
+    const levelName = level.getName();
+    if (levelName !== 'intro') {
+      const levelText = new PIXI.BitmapText(`level ${levelName}`, {
+        fontName: 'GoodNeighbors',
+        fontSize: 30,
+      });
+      levelText.anchor = 1;
+      levelText.position.set(widthPx - 10, heightPx + 30);
 
-    this.container.addChild(levelText);
+      this.container.addChild(levelText);
+    }
   }
 
   public setOverlay(string: string) {
