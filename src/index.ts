@@ -11,6 +11,7 @@ import {
   deathText,
   winText,
   loadErrorText,
+  gameResetText,
 } from './data/overlay-text';
 
 const app = new PIXI.Application({
@@ -69,9 +70,7 @@ app.loader.load(() => {
 
       if (isResetting) {
         Cookies.remove('current-level');
-        world.setOverlay(
-          'game reset.\n\nre-comment the reset() call to proceed.'
-        );
+        world.setOverlay(gameResetText);
       } else {
         // Show intro text
         let currentIndex = 0;

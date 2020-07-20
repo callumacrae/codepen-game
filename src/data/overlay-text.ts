@@ -63,3 +63,6 @@ export const loadErrorText = [
   'codepen. click on the screen to be taken',
   'there.',
 ].join('\n');
+
+export const gameResetText =
+  'game reset.\n\nre-comment the reset() call to proceed.';
