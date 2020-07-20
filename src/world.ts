@@ -18,7 +18,11 @@ export default class World {
   private outerContainer?: PIXI.Container;
   private container?: PIXI.Container;
   private characters: Character[];
-  private overlay?: { text: PIXI.BitmapText; container: PIXI.Container };
+  private overlay?: {
+    text: PIXI.BitmapText;
+    container: PIXI.Container;
+    links: PIXI.Container[];
+  };
   private levelText?: PIXI.Container;
 
   constructor(width = 20, height = 13) {
@@ -302,7 +306,8 @@ export default class World {
     delete this.activeLevel;
   }
 
-  public setOverlay(string: string) {
+  // @TODO make doLinks actually do something
+  public setOverlay(string: string, doLinks = false) {
     if (!this.container || !this.outerContainer) {
       throw new Error(
         "Can't show overlay on a world that hasn't been drawn yet."
@@ -310,8 +315,12 @@ export default class World {
     }
 
     if (this.overlay) {
-      this.overlay.text.text = string;
-      return;
+      if (!doLinks && !this.overlay.links.length) {
+        this.overlay.text.text = string;
+        return;
+      } else {
+        this.hideOverlay();
+      }
     }
 
     const { outerContainer, container } = this;
@@ -328,20 +337,77 @@ export default class World {
     background.alpha = 0.3;
     overlayContainer.addChild(background);
 
-    const text = new PIXI.BitmapText(string, {
-      fontName: 'GoodNeighbors',
+    const textStyle = {
+      fontFamily: 'GoodNeighbors',
       fontSize: 35,
+    };
+    const bitmapTextStyle = {
+      ...textStyle,
+      fontFamily: undefined,
+      fontName: textStyle.fontFamily,
+    };
+
+    const linksRegex = /(\[[^\]]+\])\(([^\)]+)\)/g;
+
+    const style = new PIXI.TextStyle(textStyle);
+    const stringWithoutLinks = string.replace(
+      linksRegex,
+      (match, text) => text
+    );
+    const textMetrics = PIXI.TextMetrics.measureText(stringWithoutLinks, style);
+    const stringWidth = textMetrics.width * 0.97;
+    const stringHeight = textMetrics.height;
+    const lineHeight = 35;
+
+    // This has some caveats:
+    // - only works at the end of a line
+    // - link text must be unique
+    // - links cannot contain brackets
+    const linkObjs: { text: string; link: string }[] = [];
+    const linkedString = string.replace(linksRegex, (match, text, link) => {
+      linkObjs.push({ text, link });
+      return '';
     });
-    text.anchor = 0.5;
-    text.position.set(widthPx / 2, heightPx / 2);
+
+    const text = new PIXI.BitmapText(linkedString, bitmapTextStyle);
+    text.anchor = new PIXI.Point(0, 0.5);
+    text.position.set(widthPx / 2 - stringWidth / 2, heightPx / 2);
 
     overlayContainer.addChild(text);
+
+    const links: PIXI.BitmapText[] = [];
+    const splitString = string.split('\n');
+    linkObjs.forEach((linkObj) => {
+      const lineNumber = splitString.findIndex((str) =>
+        str.includes(linkObj.text)
+      );
+
+      const textLink = new PIXI.BitmapText(linkObj.text, {
+        ...bitmapTextStyle,
+        tint: 0xff0000,
+      });
+      textLink.anchor = new PIXI.Point(1, 0.5);
+      textLink.position.set(
+        widthPx / 2 + stringWidth / 2,
+        heightPx / 2 - stringHeight / 2 + lineHeight * (lineNumber + 1)
+      );
+
+      textLink.interactive = true;
+      textLink.buttonMode = true;
+
+      textLink.on('pointerdown', () => {
+        window.open(linkObj.link, '_blank');
+      });
+
+      links.push(textLink);
+      overlayContainer.addChild(textLink);
+    });
 
     container.filters = [new PIXI.filters.BlurFilter(3)];
 
     outerContainer.addChild(overlayContainer);
 
-    this.overlay = { text, container: overlayContainer };
+    this.overlay = { text, container: overlayContainer, links };
   }
 
   public hideOverlay() {

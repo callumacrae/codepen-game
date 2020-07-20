@@ -12,6 +12,7 @@ import {
   winText,
   loadErrorText,
   gameResetText,
+  creditsText,
 } from './data/overlay-text';
 
 const app = new PIXI.Application({
@@ -24,6 +25,7 @@ document.body.appendChild(app.view);
 interface GameSetupObj {
   play: () => void;
   showHelp: () => void;
+  showCredits: () => void;
   reset: () => void;
 }
 
@@ -49,12 +51,16 @@ app.loader.load(() => {
   let isPlaying = false;
   let isResetting = false;
   let showHelp = false;
+  let showCredits = false;
   const gameSetupObj: GameSetupObj = {
     play() {
       isPlaying = true;
     },
     showHelp() {
       showHelp = true;
+    },
+    showCredits() {
+      showCredits = true;
     },
     reset() {
       isResetting = true;
@@ -64,13 +70,15 @@ app.loader.load(() => {
   if (window.run && window.run.setup) {
     window.run.setup(gameSetupObj);
 
-    if (!isPlaying || isResetting) {
+    if (!isPlaying || isResetting || showCredits) {
       const intro = new Level('intro');
       world.play(intro);
 
       if (isResetting) {
         Cookies.remove('current-level');
         world.setOverlay(gameResetText);
+      } else if (showCredits) {
+        world.setOverlay(creditsText, true);
       } else {
         // Show intro text
         let currentIndex = 0;
@@ -147,17 +155,12 @@ if (process.env.NODE_ENV === 'development') {
     setup(game) {
       // prettier-ignore
       /* Uncomment this to begin! */
-      game.play()
+      game.play();
 
-      /* For help, uncomment this next line. */
-      // game.showHelp();
-
-      /* To set a fixed seed and make the randomness less random,
-       uncomment out the following line. */
-      // game.setSeed('test')
-
-      /* Uncomment to reset the game */
-      // game.reset();
+      // game.showHelp(); // Show help text for current level
+      // game.setSeed('test'); // Sets a fixed seed to reduce unpredictability
+      // game.reset(); // Resets the game to level one
+      // game.showCredits(); // Shows the game credits
     },
     /**
      * The instruction function is called repeatedly, once per

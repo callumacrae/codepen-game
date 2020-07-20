@@ -66,3 +66,13 @@ export const loadErrorText = [
 
 export const gameResetText =
   'game reset.\n\nre-comment the reset() call to proceed.';
+
+export const creditsText = [
+  'game: [callum macrae](https://macr.ae/)',
+  '',
+  'dungeon tileset: [buch](https://opengameart.org/content/dungeon-tileset)',
+  'robot: [corey archer](https://opengameart.org/content/future-robot)',
+  'zombie: [artisticdude + reemax](https://opengameart.org/content/zombie-and-skeleton-32x48)',
+  'skeleton: [wulax](https://opengameart.org/content/lpc-skeleton)',
+  'good neighbors font: [clint bellanger](https://opengameart.org/content/good-neighbors-pixel-font-starlingunity-version-updated)',
+].join('\n');
