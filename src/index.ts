@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js';
 import Cookies from 'js-cookie';
+import * as random from '@callumacrae/utils/random';
 
 import World from './world';
 import Level from './level';
@@ -28,6 +29,7 @@ interface GameSetupObj {
   showHelp: () => void;
   showCredits: () => void;
   reset: () => void;
+  setSeed: (seed: string) => void;
 }
 
 app.loader.add(
@@ -43,11 +45,16 @@ app.loader.add(
   'https://codepen-game.vercel.app/assets/good_neighbors_starling.xml'
 );
 app.loader.load(() => {
-  const world = new World();
+  let world: World;
+  const createWorld = () => {
+    const world = new World();
 
-  const worldContainer = world.draw();
-  worldContainer.position.set(80, 92);
-  app.stage.addChild(worldContainer);
+    const worldContainer = world.draw();
+    worldContainer.position.set(80, 92);
+    app.stage.addChild(worldContainer);
+
+    return world;
+  };
 
   let isPlaying = false;
   let isResetting = false;
@@ -66,15 +73,21 @@ app.loader.load(() => {
     reset() {
       isResetting = true;
     },
+    setSeed(seed: string) {
+      random.setSeed(seed);
+    },
   };
 
   if (window.run && window.run.setup) {
     try {
       window.run.setup(gameSetupObj);
     } catch (err) {
+      world = createWorld();
       world.setOverlay(errorText.replace('{{place}}', 'setup'));
       throw err;
     }
+
+    world = createWorld();
 
     if (!isPlaying || isResetting || showCredits) {
       const intro = new Level('intro');
@@ -128,6 +141,7 @@ app.loader.load(() => {
       }
     }
   } else {
+    world = createWorld();
     const intro = new Level('intro');
     world.play(intro);
     world.setOverlay(loadErrorText);
@@ -174,7 +188,7 @@ if (process.env.NODE_ENV === 'development') {
       game.play();
 
       // game.showHelp(); // Show help text for current level
-      // game.setSeed('test'); // Sets a fixed seed to reduce unpredictability
+      // game.setSeed('your seed'); // Sets a fixed seed to reduce unpredictability
       // game.reset(); // Resets the game to level one
       // game.showCredits(); // Shows the game credits
     },
