@@ -76,3 +76,10 @@ export const creditsText = [
   'skeleton: [wulax](https://opengameart.org/content/lpc-skeleton)',
   'good neighbors font: [clint bellanger](https://opengameart.org/content/good-neighbors-pixel-font-starlingunity-version-updated)',
 ].join('\n');
+
+export const errorText = [
+  'your {{place}} code threw an error.',
+  '',
+  'check the console for the error, and',
+  'try again.',
+].join('\n');

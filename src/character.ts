@@ -3,6 +3,7 @@ import * as random from '@callumacrae/utils/random';
 import shortestPath from './utils/shortest-path';
 
 import characterTypes, { CharacterType } from './data/characters';
+import { errorText } from './data/overlay-text';
 
 import World from './world';
 
@@ -295,10 +296,16 @@ export default class Character {
         this.world ? this.world.isGround(x, y) : false,
     };
 
-    const command = this.instructionFn(data, libs);
+    let command: Command;
+    try {
+      command = this.instructionFn(data, libs);
 
-    if (!data.availableCommands.includes(command)) {
-      throw new Error('Unavailable command used.');
+      if (!data.availableCommands.includes(command)) {
+        throw new Error('Unavailable command used.');
+      }
+    } catch (err) {
+      this.world.setOverlay(errorText.replace('{{place}}', 'instruction'));
+      throw err;
     }
 
     this.previousCommands.push(command);

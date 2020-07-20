@@ -13,6 +13,7 @@ import {
   loadErrorText,
   gameResetText,
   creditsText,
+  errorText,
 } from './data/overlay-text';
 
 const app = new PIXI.Application({
@@ -68,7 +69,12 @@ app.loader.load(() => {
   };
 
   if (window.run && window.run.setup) {
-    window.run.setup(gameSetupObj);
+    try {
+      window.run.setup(gameSetupObj);
+    } catch (err) {
+      world.setOverlay(errorText.replace('{{place}}', 'setup'));
+      throw err;
+    }
 
     if (!isPlaying || isResetting || showCredits) {
       const intro = new Level('intro');
@@ -132,8 +138,19 @@ app.loader.load(() => {
     });
   }
 
+  let isError = false;
   app.ticker.add((delta) => {
-    world.update(delta, app.ticker.elapsedMS);
+    if (isError) {
+      return;
+    }
+
+    try {
+      world.update(delta, app.ticker.elapsedMS);
+    } catch (err) {
+      // We can't throw the error or pixi doesn't show the overlay
+      isError = true;
+      console.error(err);
+    }
   });
 });
 
@@ -153,7 +170,6 @@ if (process.env.NODE_ENV === 'development') {
      * how the game should run.
      */
     setup(game) {
-      // prettier-ignore
       /* Uncomment this to begin! */
       game.play();
 
